@@ -39,13 +39,13 @@ public class NetModule {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }
 
-    @Provides
-    @Singleton
-    Cache provideOkHttpCache(Application application) {
-        int cacheSize = 10 * 1024 * 1024; // 10 MiB
-        Cache cache = new Cache(application.getCacheDir(), cacheSize);
-        return cache;
-    }
+//    @Provides
+//    @Singleton
+//    Cache provideOkHttpCache(Application application) {
+//        int cacheSize = 10 * 1024 * 1024; // 10 MiB
+//        Cache cache = new Cache(application.getCacheDir(), cacheSize);
+//        return cache;
+//    }
 
     @Provides
     @Singleton
@@ -55,11 +55,11 @@ public class NetModule {
         return gsonBuilder.create();
     }
 
-    @Provides
-    @Singleton
-    OkHttpClient provideOkHttpClient(Cache cache) {
-        return new OkHttpClient.Builder().cache(cache).build();
-    }
+//    @Provides
+//    @Singleton
+//    OkHttpClient provideOkHttpClient(Cache cache) {
+//        return new OkHttpClient.Builder().cache(cache).build();
+//    }
 
     @Provides
     @Singleton

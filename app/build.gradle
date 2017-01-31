@@ -33,7 +33,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
-    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+//    compile 'com.squareup.okhttp3:okhttp:3.6.0'
 
     compile 'com.google.code.gson:gson:2.8.0'
 
