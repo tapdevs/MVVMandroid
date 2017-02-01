@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
 
-    public ApiCalls newHackerNewsService() {
+    public ApiCalls newApiCalls() {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiCalls.ENDPOINT)

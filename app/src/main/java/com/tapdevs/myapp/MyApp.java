@@ -1,6 +1,7 @@
 package com.tapdevs.myapp;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.tapdevs.myapp.injections.component.DaggerNetComponent;
 import com.tapdevs.myapp.injections.component.NetComponent;
@@ -15,6 +16,8 @@ import io.realm.Realm;
 
 public class MyApp extends Application {
     private NetComponent mNetComponent;
+//    ApplicationComponent mApplicationComponent;
+
 
 
     @Override
@@ -25,10 +28,16 @@ public class MyApp extends Application {
                 .appModule(new AppModule(this)) // This also corresponds to the name of your module: %component_name%Module
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
-        Realm.init(this);
+
+//        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
     }
 
     public NetComponent getNetComponent() {
         return mNetComponent;
     }
+
+    public static MyApp get(Context context) {
+        return (MyApp) context.getApplicationContext();
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.tapdevs.myapp.views.activitys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -25,5 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         accountingEntry = component.provideVehicle();
 
         Toast.makeText(this, String.valueOf(accountingEntry.getDebitOrCredit().getDescription()), Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

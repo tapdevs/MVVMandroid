@@ -34,7 +34,7 @@ public class NetModule {
     // Dagger will only look for methods annotated with @Provides
     @Provides
     @Singleton
-    // Application reference must come from AppModule.class
+    // Application reference must come from ApplicationModule.class
     SharedPreferences providesSharedPreferences(Application application) {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }

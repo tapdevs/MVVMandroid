@@ -6,5 +6,5 @@ package com.tapdevs.myapp.utils;
 
 public class AppConstants {
 
-    public static final String NY_TIMES_API_KEY="93e818ec3e5644009ed522cc0f0824df";
+    public static final String NEWS_API_KEY="f3d98d99383440f999ad61d26f8ab9e1";
 }
