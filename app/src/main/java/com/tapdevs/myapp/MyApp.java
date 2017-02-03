@@ -9,6 +9,7 @@ import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
 
 import io.realm.Realm;
+import timber.log.Timber;
 
 /**
  * Created by  Jan Shair on 30/01/2017.
@@ -29,7 +30,8 @@ public class MyApp extends Application {
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
 
-//        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
+        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
+
     }
 
     public NetComponent getNetComponent() {

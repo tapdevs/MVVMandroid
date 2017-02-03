@@ -7,24 +7,34 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.injections.component.AccountingEntryComponent;
 import com.tapdevs.myapp.injections.modules.AccountingEntryModule;
+import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.models.AccountingEntry;
 
 import javax.inject.Inject;
+
+import retrofit2.Retrofit;
+import timber.log.Timber;
+
+import static android.os.Build.VERSION_CODES.N;
 
 public class SplashActivity extends AppCompatActivity {
 
     @Inject AccountingEntry accountingEntry;
     @Inject
     SharedPreferences sharedPreferences;
+//    @Inject Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        sharedPreferences=((MyApp)getApplicationContext()).getNetComponent().provideSharedPreferences();
+//        retrofit=((MyApp)getApplicationContext()).getNetComponent().provideRetrofit();
+        Timber.d("Timber setup");
 
 //        AccountingEntryComponent component = DaggerAccountingEntryComponent.builder().accountingEntryModule(new AccountingEntryModule()).build();
 
