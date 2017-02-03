@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         context=this;
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(context);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
         fab.setOnClickListener(new View.OnClickListener() {

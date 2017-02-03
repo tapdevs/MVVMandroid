@@ -2,6 +2,11 @@
 <manifest package="com.tapdevs.myapp"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -20,6 +25,10 @@
             android:name=".views.activitys.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login">
         </activity>
     </application>
 
