@@ -1,6 +1,7 @@
 package com.tapdevs.myapp.data.remote;
 
 import com.google.gson.GsonBuilder;
+import com.tapdevs.myapp.utils.AppConstants;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -15,7 +16,7 @@ public class RetrofitHelper {
     public ApiCalls newApiCalls() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ApiCalls.ENDPOINT)
+                .baseUrl(AppConstants.SERVER_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(ApiCalls.class);

@@ -14,8 +14,11 @@ import rx.Observable;
  */
 
 public interface ApiCalls {
-    public String ENDPOINT = "https://newsapi.org/v1/articles";
 
     @GET("/source/{source}")
     Observable<List<Article>> getTopStories(@Path("source") String source, @Header("Authorization") String authorization);
+
+    @GET("users")
+    String getAllUsers();
+
 }

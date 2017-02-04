@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.tapdevs.myapp.injections.scope.PerDataManager;
 
 import javax.inject.Singleton;
 
@@ -16,6 +17,8 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Scheduler;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by  Jan Shair on 31/01/2017.
@@ -39,13 +42,13 @@ public class NetModule {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }
 
-//    @Provides
-//    @Singleton
-//    Cache provideOkHttpCache(Application application) {
-//        int cacheSize = 10 * 1024 * 1024; // 10 MiB
-//        Cache cache = new Cache(application.getCacheDir(), cacheSize);
-//        return cache;
-//    }
+    @Provides
+    @Singleton
+    Cache provideOkHttpCache(Application application) {
+        int cacheSize = 10 * 1024 * 1024; // 10 MiB
+        Cache cache = new Cache(application.getCacheDir(), cacheSize);
+        return cache;
+    }
 
     @Provides
     @Singleton
@@ -55,20 +58,26 @@ public class NetModule {
         return gsonBuilder.create();
     }
 
-//    @Provides
-//    @Singleton
-//    OkHttpClient provideOkHttpClient(Cache cache) {
-//        return new OkHttpClient.Builder().cache(cache).build();
-//    }
+    @Provides
+    @Singleton
+    OkHttpClient provideOkHttpClient(Cache cache) {
+        return new OkHttpClient.Builder().cache(cache).build();
+    }
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+    Retrofit provideRetrofit(Application application) {
         Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(GsonConverterFactory.create(provideGson()))
                 .baseUrl(mBaseUrl)
-                .client(okHttpClient)
+                .client(provideOkHttpClient(provideOkHttpCache(application)))
                 .build();
         return retrofit;
+    }
+
+    @Provides
+    @PerDataManager
+    Scheduler provideSubscribeScheduler() {
+        return Schedulers.io();
     }
 }

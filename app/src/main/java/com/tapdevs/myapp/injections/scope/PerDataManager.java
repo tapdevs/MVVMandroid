@@ -10,7 +10,7 @@ import javax.inject.Scope;
  * conform to the life of the DataManager to be memorised in the
  * correct component.
  */
-//@Scope
-//@Retention(RetentionPolicy.RUNTIME)
-//public @interface PerDataManager {
-//}
+@Scope
+@Retention(RetentionPolicy.RUNTIME)
+public @interface PerDataManager {
+}

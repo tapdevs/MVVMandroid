@@ -13,7 +13,9 @@ import com.tapdevs.myapp.utils.AppConstants;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+import dagger.Provides;
 import rx.Observable;
 import rx.Scheduler;
 import rx.functions.Func1;
@@ -30,6 +32,8 @@ public class DataManager {
     protected ApiCalls apiCalls;
     @Inject protected Scheduler mSubscribeScheduler;
 
+
+    @Inject
     public DataManager(Context context) {
         injectDependencies(context);
     }
@@ -41,11 +45,11 @@ public class DataManager {
     }
 
     protected void injectDependencies(Context context) {
-//        DaggerNetComponent.builder()
-//                .appModule(new AppModule((MyApp).get()))
-//                .dataManagerModule(new NetModule(AppConstants.NEWS_API_KEY))
-//                .build()
-//                .inject(this);
+        DaggerNetComponent.builder()
+                .appModule(new AppModule(MyApp.get(context)))
+                .netModule(new NetModule(AppConstants.NEWS_API_KEY))
+                .build()
+                .inject(MyApp.get(context));
     }
 
     public Scheduler getScheduler() {
@@ -61,21 +65,6 @@ public class DataManager {
 //                    }
 //                });
     }
-
-//    public Observable<Article> getPostsFromIds(List<Long> storyIds) {
-//        return Observable.from(storyIds)
-//                .concatMap(new Func1<Long, Observable<Post>>() {
-//                    @Override
-//                    public Observable<Post> call(Long aLong) {
-//                        return apiCalls.getStoryItem(String.valueOf(aLong));
-//                    }
-//                }).flatMap(new Func1<Post, Observable<Post>>() {
-//                    @Override
-//                    public Observable<Post> call(Post post) {
-//                        return post.title != null ? Observable.just(post) : Observable.<Post>empty();
-//                    }
-//                });
-//    }
 
 
 }
