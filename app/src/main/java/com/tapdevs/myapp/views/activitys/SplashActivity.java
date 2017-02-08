@@ -1,36 +1,33 @@
 package com.tapdevs.myapp.views.activitys;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.data.DataManager;
-import com.tapdevs.myapp.injections.component.AccountingEntryComponent;
-import com.tapdevs.myapp.injections.modules.AccountingEntryModule;
-import com.tapdevs.myapp.injections.modules.NetModule;
-import com.tapdevs.myapp.models.AccountingEntry;
+import com.tapdevs.myapp.models.User;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
-import retrofit2.Retrofit;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import rx.Observable;
 import timber.log.Timber;
-
-import static android.os.Build.VERSION_CODES.N;
 
 public class SplashActivity extends AppCompatActivity {
 
     private SplashActivity context;
+    private final long timeOut=5000;
 
-    @Inject AccountingEntry accountingEntry;
-    @Inject
-    SharedPreferences sharedPreferences;
-    @Inject Retrofit retrofit;
+    @Inject SharedPreferences sharedPreferences;
     @Inject DataManager dataManager;
 
     @Override
@@ -39,18 +36,20 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         context=this;
         sharedPreferences=((MyApp)getApplicationContext()).getNetComponent().provideSharedPreferences();
-        retrofit=MyApp.get(context).getNetComponent().provideRetrofit();
         dataManager=MyApp.get(context).getNetComponent().provideDataManager();
         Timber.d("Timber setup");
+        Observable<List<User>> users=dataManager.getUsers();
 
-//        AccountingEntryComponent component = DaggerAccountingEntryComponent.builder().accountingEntryModule(new AccountingEntryModule()).build();
 
-//        accountingEntry = component.provideVehicle();
+        Timber.d(users.toString());
             if(sharedPreferences == null){
                 Log.d("Splash","null accounting entry");
             }
-//        Toast.makeText(this, String.valueOf(accountingEntry.getDebitOrCredit().getDescription()), Toast.LENGTH_SHORT).show();
-
-        startActivity(new Intent(this,MainActivity.class));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(context,MainActivity.class));
+            }
+        },timeOut);
     }
 }

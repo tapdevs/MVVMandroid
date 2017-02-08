@@ -34,6 +34,7 @@ buildscript {
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '25.1.1'
     final RETROFIT_VERSION = '2.1.0'
+    final RXJAVA_VERSION = '2.0.1'
     final BUTTERKNIFE_VERSION = '8.5.1'
 
 
@@ -50,12 +51,19 @@ dependencies {
     compile "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
     apt "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
 
+
+    compile "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    compile "io.reactivex.rxjava2:rxandroid:$RXJAVA_VERSION"
+    compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta1'
+
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+
 //    compile 'com.squareup.okhttp3:okhttp:3.6.0'
 
 
     compile 'com.jakewharton.timber:timber:4.5.1'
     compile 'com.google.code.gson:gson:2.8.0'
-    compile 'io.reactivex:rxandroid:0.25.0'
     compile 'com.google.dagger:dagger:2.0.2'
     compile 'com.android.support:design:25.1.1'
     compile 'com.android.support:support-v4:25.1.1'

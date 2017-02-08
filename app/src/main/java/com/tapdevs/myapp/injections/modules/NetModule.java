@@ -7,6 +7,8 @@ import android.preference.PreferenceManager;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.tapdevs.myapp.data.DataManager;
+import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.injections.scope.PerDataManager;
 
 import javax.inject.Singleton;
@@ -76,7 +78,13 @@ public class NetModule {
     }
 
     @Provides
-    @PerDataManager
+    @Singleton
+    DataManager provideDataManager(Application application){
+        return new DataManager(new RetrofitHelper().newApiCalls(),Schedulers.io());
+    }
+
+    @Provides
+    @Singleton
     Scheduler provideSubscribeScheduler() {
         return Schedulers.io();
     }

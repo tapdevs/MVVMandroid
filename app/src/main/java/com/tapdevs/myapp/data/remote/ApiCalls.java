@@ -1,12 +1,11 @@
 package com.tapdevs.myapp.data.remote;
 
-import com.tapdevs.myapp.models.Article;
+import com.tapdevs.myapp.models.User;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -15,10 +14,7 @@ import rx.Observable;
 
 public interface ApiCalls {
 
-    @GET("/source/{source}")
-    Observable<List<Article>> getTopStories(@Path("source") String source, @Header("Authorization") String authorization);
-
     @GET("users")
-    String getAllUsers();
+    Observable<List<User>> getAllUsers();
 
 }

@@ -28,8 +28,7 @@ public interface NetComponent {
     // void inject(MyService service);
 
     SharedPreferences provideSharedPreferences();
-//    Gson provideGson();
     Retrofit provideRetrofit();
-
     DataManager provideDataManager();
+
 }

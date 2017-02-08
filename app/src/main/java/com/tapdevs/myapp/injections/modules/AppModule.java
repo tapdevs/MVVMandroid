@@ -17,13 +17,9 @@ import dagger.Provides;
 public class AppModule {
 
     Application mApplication;
-    SplashActivity splashActivity;
 
     public AppModule(Application application) {
         mApplication = application;
-    }
-    public AppModule(SplashActivity splashActivity) {
-        this.splashActivity = splashActivity;
     }
 
     @Provides
@@ -32,9 +28,5 @@ public class AppModule {
         return mApplication;
     }
 
-    @Provides
-    @Singleton
-    SplashActivity providesSplashActivity() {
-        return new SplashActivity();
-    }
+
 }
