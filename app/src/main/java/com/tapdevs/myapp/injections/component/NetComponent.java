@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.tapdevs.myapp.data.DataManager;
+import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.views.activitys.SplashActivity;
@@ -28,7 +29,7 @@ public interface NetComponent {
     // void inject(MyService service);
 
     SharedPreferences provideSharedPreferences();
-    Retrofit provideRetrofit();
+    ApiCalls provideApiInterface();
     DataManager provideDataManager();
 
 }

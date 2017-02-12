@@ -8,6 +8,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.tapdevs.myapp.data.DataManager;
+import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.injections.scope.PerDataManager;
 
@@ -68,13 +69,9 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(Application application) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(provideGson()))
-                .baseUrl(mBaseUrl)
-                .client(provideOkHttpClient(provideOkHttpCache(application)))
-                .build();
-        return retrofit;
+    ApiCalls provideApiInterface(Application application) {
+
+        return new RetrofitHelper().newApiCalls();
     }
 
     @Provides

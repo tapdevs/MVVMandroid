@@ -32,11 +32,16 @@ public class MyApp extends Application {
                 .build();
 
         if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
+        Realm.init(this);
 
     }
 
     public NetComponent getNetComponent() {
         return mNetComponent;
+    }
+
+    public void inject(){
+        getNetComponent().inject(this);
     }
 
     public static MyApp get(Context context) {

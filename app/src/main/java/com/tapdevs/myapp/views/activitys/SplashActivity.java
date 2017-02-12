@@ -10,6 +10,8 @@ import android.util.Log;
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.data.DataManager;
+import com.tapdevs.myapp.injections.component.NetComponent;
+import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.models.User;
 
 import java.util.List;
@@ -21,6 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import rx.Observable;
 import timber.log.Timber;
+
+import static android.os.Build.VERSION_CODES.N;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -35,15 +39,16 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         context=this;
+        ((MyApp)getApplicationContext()).inject();
         sharedPreferences=((MyApp)getApplicationContext()).getNetComponent().provideSharedPreferences();
         dataManager=MyApp.get(context).getNetComponent().provideDataManager();
         Timber.d("Timber setup");
-        Observable<List<User>> users=dataManager.getUsers();
+//        Observable<List<User>> users=dataManager.getUsers();
 
 
-        Timber.d(users.toString());
+//        Timber.d(users.toString());
             if(sharedPreferences == null){
-                Log.d("Splash","null accounting entry");
+                Timber.d("Splash","null accounting entry");
             }
         new Handler().postDelayed(new Runnable() {
             @Override

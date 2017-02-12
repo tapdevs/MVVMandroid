@@ -20,11 +20,12 @@ public class RetrofitHelper {
 
     public ApiCalls newApiCalls() {
 
-        Retrofit retrofit = new Retrofit.Builder()
+        ApiCalls apiInterface = new Retrofit.Builder()
                 .baseUrl(AppConstants.SERVER_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        return retrofit.create(ApiCalls.class);
+                .build().create(ApiCalls.class);
+
+        return apiInterface;
     }
 }

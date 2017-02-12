@@ -53,15 +53,7 @@ public class DataManager {
 
 
 
-    public Observable<List<User>> getUsers() {
-        return apiCalls.getAllUsers();
-//                .concatMap(new Func1<List<Long>, Observable<? extends Article>>() {
-//                    @Override
-//                    public Observable<? extends Article> call(List<Long> longs) {
-//                        return getPostsFromIds(longs);
-//                    }
-//                });
-    }
+
 
 
 }
