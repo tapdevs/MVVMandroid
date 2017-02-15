@@ -40,9 +40,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
-    public static Intent getStartIntent(Context context) {
-        return new Intent(context, MainActivity.class);
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

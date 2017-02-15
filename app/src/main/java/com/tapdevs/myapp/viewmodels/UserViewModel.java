@@ -1,6 +1,7 @@
 package com.tapdevs.myapp.viewmodels;
 
 import android.app.Activity;
+import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;
 
@@ -13,7 +14,7 @@ import com.tapdevs.myapp.views.activitys.MainActivity;
  * Created by  Jan Shair on 15/02/2017.
  */
 
-public class UserViewModel {
+public class UserViewModel extends BaseObservable {
     private MainActivity context;
     private User user;
 
