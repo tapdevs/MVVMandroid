@@ -1,5 +1,7 @@
 package com.tapdevs.myapp.views.activitys;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -24,6 +26,7 @@ import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.NetworkUtils;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
+import com.tapdevs.myapp.views.fragments.UsersFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,92 +35,43 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
-    private MainActivity context;
-
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
-    @BindView(R.id.tv_error)
-    TextView errorView;
-
-    private CompositeDisposable mCompositeDisposable;
-
-    private UserAdapter mAdapter;
-
-    private ArrayList<User> mAndroidArrayList;
-    private ApiCalls apiCalls;
+    public static Intent getStartIntent(Context context) {
+        return new Intent(context, MainActivity.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=this;
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-        apiCalls= MyApp.get(context).getNetComponent().provideApiInterface();
-        mCompositeDisposable = new CompositeDisposable();
-        initRecyclerView();
-        checkInternetAndMakeCall();
-
-    }
-
-    private void initRecyclerView() {
-        mRecyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        mRecyclerView.setLayoutManager(layoutManager);
-    }
-
-    private void checkInternetAndMakeCall() {
-
-        if(NetworkUtils.checkInternet(context)){
-
-
-            hideError();
-            mCompositeDisposable.add(apiCalls.getUsers()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
-                    .subscribe(this::handleResponse,this::handleError));
-
-        }else {
-            showError(getString(R.string.noInternet));
-        }
-    }
-    private void handleResponse(List<User> androidList) {
-
-        mAndroidArrayList = new ArrayList<>(androidList);
-        mAdapter = new UserAdapter(context,mAndroidArrayList);
-        mRecyclerView.setAdapter(mAdapter);
-    }
-
-    private void handleError(Throwable error) {
-
-        showError("Error "+error.getLocalizedMessage());
+        addStoriesFragment();
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mCompositeDisposable.clear();
-    }
-    private void showError(String message) {
-        mRecyclerView.setVisibility(View.GONE);
-        errorView.setVisibility(View.VISIBLE);
-        errorView.setText(message);
-    }
-
-    private void hideError() {
-        mRecyclerView.setVisibility(View.VISIBLE);
-        errorView.setVisibility(View.GONE);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
     @Override
-    public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0){
-
-        }else {
-            super.onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_view_on_github:
+                //TODO: Add github link
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void addStoriesFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_frame, new UsersFragment())
+                .commit();
     }
 }

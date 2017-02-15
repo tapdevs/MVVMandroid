@@ -16,14 +16,20 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         jackOptions {
-            enabled true
+            enabled false
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    dataBinding {
+        enabled = true
     }
+
+
+
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -31,6 +37,9 @@ android {
         }
 
     }
+
+
+
 
 
 
@@ -60,11 +69,16 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
+//    dependencies {
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
+//        classpath 'me.tatarka:gradle-retrolambda:3.5.0'
+
+//    }
+
+
 
 }
+
 dependencies {
     final SUPPORT_LIBRARY_VERSION = '25.1.1'
     final RETROFIT_VERSION = '2.1.0'
@@ -111,3 +125,4 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.0.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 }
+

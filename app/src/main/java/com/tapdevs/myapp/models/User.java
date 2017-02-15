@@ -1,12 +1,14 @@
 package com.tapdevs.myapp.models;
 
+import android.databinding.BaseObservable;
+
 import io.realm.RealmObject;
 
 /**
  * Created by  Jan Shair on 08/02/2017.
  */
 
-public class User extends RealmObject{
+public class User extends BaseObservable{
 
     private String login,id,avatar_url,gravatar_id,url,html_url,followers_url,following_url,gists_url,
             starred_url,subscriptions_url,organizations_url,repos_url,events_url,received_events_url,type,

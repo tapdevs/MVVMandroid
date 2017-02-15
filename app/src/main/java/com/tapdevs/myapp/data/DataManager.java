@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 import rx.Observable;
 import rx.Scheduler;
+import rx.functions.Func1;
 
 /**
  * Created by  Jan Shair on 31/01/2017.
@@ -49,6 +50,11 @@ public class DataManager {
 
     public Scheduler getScheduler() {
         return mSubscribeScheduler;
+    }
+
+    public io.reactivex.Observable<List<User>> getUserList() {
+        return apiCalls.getUsers();
+
     }
 
 

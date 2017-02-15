@@ -29,7 +29,7 @@ import static android.os.Build.VERSION_CODES.N;
 public class SplashActivity extends AppCompatActivity {
 
     private SplashActivity context;
-    private final long timeOut=5000;
+    private final long timeOut=1000;
 
     @Inject SharedPreferences sharedPreferences;
     @Inject DataManager dataManager;

@@ -27,6 +27,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="arabic_text">بسم الله الرحمن الرحيم السلام عليكم ورحمة الله وبركاته</string>
+    <string name="try_again">Try Again</string>
+    <string name="splashText">Splash Screen</string>
+
+
+    <!-- Dialog strings -->
+    <string name="dialog_action_ok">OK</string>
+    <string name="dialog_error_title">Oops</string>
+    <string name="dialog_rate_app_title">Rate</string>
+    <string name="dialog_rate_app_text">Enjoying this app? Why not rate it!</string>
+    <string name="dialog_neutral_button_text">Later</string>
+    <string name="dialog_negative_button_text">No, thanks</string>
+    <string name="dialog_positive_button_text">Rate</string>
+    <string name="action_view_on_github">Github</string>
 
 
 </resources>
