@@ -50,8 +50,7 @@ public class UsersFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-//    @BindView(R.id.tv_error)
-//    TextView errorView;
+
 
     private CompositeDisposable mCompositeDisposable;
 
@@ -72,6 +71,9 @@ public class UsersFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+
+//    @BindView(R.id.tv_error)
+//    TextView errorView;
 
 
     private DataManager mDataManager;

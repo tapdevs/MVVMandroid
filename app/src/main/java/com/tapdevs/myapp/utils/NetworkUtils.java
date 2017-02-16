@@ -2,9 +2,12 @@ package com.tapdevs.myapp.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,18 +31,29 @@ public class NetworkUtils {
         return true;
     }
 
-    public static void showSnackBarOnNoInternet(Activity context){
-        TSnackbar snackbar = TSnackbar
-                .make(context.findViewById(android.R.id.content), context.getString(R.string.noInternet), TSnackbar.LENGTH_LONG);
-        snackbar.setActionTextColor(Color.WHITE);
-        snackbar.setIconLeft(R.drawable.ic_signal_wifi_off, 48); //Size in dp - 24 is great!
-//        snackbar.setIconRight(R.drawable.ic_android_green_24dp, 48); //Resize to bigger dp
-        snackbar.setIconPadding(8);
-        snackbar.setMaxWidth(3000); //if you want fullsize on tablets
-        View snackbarView = snackbar.getView();
-        snackbarView.setBackgroundColor(Color.BLACK);
-        TextView textView = (TextView) snackbarView.findViewById(com.androidadvance.topsnackbar.R.id.snackbar_text);
+    public static void showSnackBarOnNoInternet(final Activity context){
+        Snackbar snackbar = Snackbar
+                .make(context.findViewById(android.R.id.content), context.getString(R.string.noInternet), TSnackbar.LENGTH_LONG)
+                .setAction("Connect", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        context.startActivity(new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS));
+
+
+                    }
+                });
+
+        // Changing message text color
+        snackbar.setActionTextColor(Color.RED);
+
+        // Changing action button text color
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_signal_wifi_off, 0, 0, 0);
+        textView.setCompoundDrawablePadding(context.getResources().getDimensionPixelOffset(R.dimen.snackbar_icon_padding));
+
         textView.setTextColor(Color.WHITE);
+
         snackbar.show();
     }
 }
