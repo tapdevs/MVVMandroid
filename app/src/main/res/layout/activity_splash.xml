@@ -15,6 +15,7 @@
         android:text="@string/splashText"
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"/>
 
 

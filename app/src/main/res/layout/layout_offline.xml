@@ -7,13 +7,13 @@
     android:orientation="vertical"
     android:visibility="gone">
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/tv_error"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:text="@string/noInternet"-->
-        <!--android:textSize="?attr/textAppearanceLargePopupMenu" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/tv_error"
+        android:text="@string/noInternet"/>
 
     <Button
         android:id="@+id/button_try_again"

@@ -61,6 +61,10 @@ android {
 
 
 
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 
@@ -70,12 +74,16 @@ android {
 buildscript {
     repositories {
         mavenCentral()
+//        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+
     }
-//    dependencies {
+    dependencies {
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 //        classpath 'me.tatarka:gradle-retrolambda:3.5.0'
+//        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.0'
 
-//    }
+
+    }
 
 
 
@@ -86,14 +94,17 @@ dependencies {
     final RETROFIT_VERSION = '2.1.0'
     final RXJAVA_VERSION = '2.0.1'
     final BUTTERKNIFE_VERSION = '8.5.1'
+    final PLAY_SERVICES_VERSION = '10.0.1'
 
-
+    androidTestCompile 'junit:junit:4.12'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
 
     })
 
+    testCompile 'org.mockito:mockito-core:2.+'
+    compile "com.google.android.gms:play-services-auth:$PLAY_SERVICES_VERSION"
 
     compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
     compile "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
@@ -127,6 +138,9 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
 
+
+
+
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.0'
 
     retrolambda {
@@ -134,4 +148,6 @@ dependencies {
     }
 
 }
+
+
 

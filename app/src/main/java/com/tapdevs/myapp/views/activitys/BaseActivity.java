@@ -1,10 +1,49 @@
 package com.tapdevs.myapp.views.activitys;
 
 import android.app.FragmentManager;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-public class BaseActivity extends AppCompatActivity {
+import com.tapdevs.myapp.MyApp;
+import com.tapdevs.myapp.views.fragments.BaseFragment;
+
+
+import java.util.List;
+
+import butterknife.ButterKnife;
+
+public abstract class BaseActivity extends AppCompatActivity {
+
+    private BaseActivity context;
+
+
+    @Override protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        context=this;
+        injectDependencies();
+        injectViews();
+    }
+
+
+
+    /**
+     * Create a new Dagger ObjectGraph to add new dependencies using a plus operation and inject the
+     * declared one in the activity. This new graph will be destroyed once the activity lifecycle
+     * finish.
+     *
+     * This is the key of how to use Activity scope dependency injection.
+     */
+    public abstract void injectDependencies() ;
+
+    /**
+     * Replace every field annotated with ButterKnife annotations like @InjectView with the proper
+     * value.
+     */
+    private void injectViews() {
+        ButterKnife.bind(this);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -21,5 +60,7 @@ public class BaseActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 
 }

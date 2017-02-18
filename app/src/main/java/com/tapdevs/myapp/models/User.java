@@ -2,6 +2,7 @@ package com.tapdevs.myapp.models;
 
 import android.databinding.BaseObservable;
 
+import io.realm.Realm;
 import io.realm.RealmObject;
 
 /**
@@ -13,6 +14,10 @@ public class User extends RealmObject{
     private String login,id,avatar_url,gravatar_id,url,html_url,followers_url,following_url,gists_url,
             starred_url,subscriptions_url,organizations_url,repos_url,events_url,received_events_url,type,
             site_admin;
+
+    public User() {
+
+    }
 
     public String getLogin() {
         return login;
@@ -149,4 +154,71 @@ public class User extends RealmObject{
     public void setSite_admin(String site_admin) {
         this.site_admin = site_admin;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (getLogin() != null ? !getLogin().equals(user.getLogin()) : user.getLogin() != null)
+            return false;
+        if (getId() != null ? !getId().equals(user.getId()) : user.getId() != null) return false;
+        if (getAvatar_url() != null ? !getAvatar_url().equals(user.getAvatar_url()) : user.getAvatar_url() != null)
+            return false;
+        if (getGravatar_id() != null ? !getGravatar_id().equals(user.getGravatar_id()) : user.getGravatar_id() != null)
+            return false;
+        if (getUrl() != null ? !getUrl().equals(user.getUrl()) : user.getUrl() != null)
+            return false;
+        if (getHtml_url() != null ? !getHtml_url().equals(user.getHtml_url()) : user.getHtml_url() != null)
+            return false;
+        if (getFollowers_url() != null ? !getFollowers_url().equals(user.getFollowers_url()) : user.getFollowers_url() != null)
+            return false;
+        if (getFollowing_url() != null ? !getFollowing_url().equals(user.getFollowing_url()) : user.getFollowing_url() != null)
+            return false;
+        if (getGists_url() != null ? !getGists_url().equals(user.getGists_url()) : user.getGists_url() != null)
+            return false;
+        if (getStarred_url() != null ? !getStarred_url().equals(user.getStarred_url()) : user.getStarred_url() != null)
+            return false;
+        if (getSubscriptions_url() != null ? !getSubscriptions_url().equals(user.getSubscriptions_url()) : user.getSubscriptions_url() != null)
+            return false;
+        if (getOrganizations_url() != null ? !getOrganizations_url().equals(user.getOrganizations_url()) : user.getOrganizations_url() != null)
+            return false;
+        if (getRepos_url() != null ? !getRepos_url().equals(user.getRepos_url()) : user.getRepos_url() != null)
+            return false;
+        if (getEvents_url() != null ? !getEvents_url().equals(user.getEvents_url()) : user.getEvents_url() != null)
+            return false;
+        if (getReceived_events_url() != null ? !getReceived_events_url().equals(user.getReceived_events_url()) : user.getReceived_events_url() != null)
+            return false;
+        if (getType() != null ? !getType().equals(user.getType()) : user.getType() != null)
+            return false;
+        return getSite_admin() != null ? getSite_admin().equals(user.getSite_admin()) : user.getSite_admin() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getLogin() != null ? getLogin().hashCode() : 0;
+        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
+        result = 31 * result + (getAvatar_url() != null ? getAvatar_url().hashCode() : 0);
+        result = 31 * result + (getGravatar_id() != null ? getGravatar_id().hashCode() : 0);
+        result = 31 * result + (getUrl() != null ? getUrl().hashCode() : 0);
+        result = 31 * result + (getHtml_url() != null ? getHtml_url().hashCode() : 0);
+        result = 31 * result + (getFollowers_url() != null ? getFollowers_url().hashCode() : 0);
+        result = 31 * result + (getFollowing_url() != null ? getFollowing_url().hashCode() : 0);
+        result = 31 * result + (getGists_url() != null ? getGists_url().hashCode() : 0);
+        result = 31 * result + (getStarred_url() != null ? getStarred_url().hashCode() : 0);
+        result = 31 * result + (getSubscriptions_url() != null ? getSubscriptions_url().hashCode() : 0);
+        result = 31 * result + (getOrganizations_url() != null ? getOrganizations_url().hashCode() : 0);
+        result = 31 * result + (getRepos_url() != null ? getRepos_url().hashCode() : 0);
+        result = 31 * result + (getEvents_url() != null ? getEvents_url().hashCode() : 0);
+        result = 31 * result + (getReceived_events_url() != null ? getReceived_events_url().hashCode() : 0);
+        result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+        result = 31 * result + (getSite_admin() != null ? getSite_admin().hashCode() : 0);
+        return result;
+    }
+
+
 }

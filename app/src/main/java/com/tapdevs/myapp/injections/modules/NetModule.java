@@ -11,11 +11,14 @@ import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.injections.scope.PerDataManager;
+import com.tapdevs.myapp.utils.RealmUtil;
+import com.tapdevs.myapp.utils.SharedPreferenceUtil;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.realm.Realm;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -41,10 +44,16 @@ public class NetModule {
     @Provides
     @Singleton
     // Application reference must come from ApplicationModule.class
-    SharedPreferences providesSharedPreferences(Application application) {
-        return PreferenceManager.getDefaultSharedPreferences(application);
+    SharedPreferenceUtil providesSharedPreferences(Application application) {
+        return new SharedPreferenceUtil(application);
     }
 
+    @Provides
+    @Singleton
+        // Application reference must come from ApplicationModule.class
+    RealmUtil providesRealm(Application application) {
+        return new RealmUtil();
+    }
     @Provides
     @Singleton
     Cache provideOkHttpCache(Application application) {

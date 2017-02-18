@@ -39,23 +39,12 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         context=this;
-        ((MyApp)getApplicationContext()).inject();
-        sharedPreferences=((MyApp)getApplicationContext()).getNetComponent().provideSharedPreferences();
-        dataManager=MyApp.get(context).getNetComponent().provideDataManager();
-        Timber.d("Timber setup");
-//        Observable<List<User>> users=dataManager.getUsers();
+        this.getSupportActionBar().hide();
+        new Handler().postDelayed(this::startMainActivity,timeOut);
+    }
 
-
-//        Timber.d(users.toString());
-            if(sharedPreferences == null){
-                Timber.d("Splash","null accounting entry");
-            }
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(context,MainActivity.class));
-                finish();
-            }
-        },timeOut);
+    private void startMainActivity(){
+        startActivity(new Intent(context,MainActivity.class));
+        finish();
     }
 }

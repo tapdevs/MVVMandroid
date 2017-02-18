@@ -18,6 +18,7 @@ import com.tapdevs.myapp.databinding.UserRowBinding;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.viewmodels.UserViewModel;
 import com.tapdevs.myapp.views.activitys.MainActivity;
+import com.tapdevs.myapp.views.fragments.UsersFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +35,9 @@ import static android.R.attr.country;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder> {
 
     private List<User> userArrayList;
-    private MainActivity context;
+    private UsersFragment context;
 
-    public UserAdapter(MainActivity context, List<User> androidList) {
+    public UserAdapter(UsersFragment context, List<User> androidList) {
         this.context=context;
         userArrayList = androidList;
 
@@ -64,12 +65,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder>
         User user=userArrayList.get(position);
         UserRowBinding commentsHeaderBinding = (UserRowBinding) holder.binding;
         commentsHeaderBinding.setViewModel(new UserViewModel(context, user));
-//        holder.mTvName.setText(user.getLogin());
-//        holder.mTVURL.setText(user.getHtml_url());
-//        Glide.with(context)
-//                .load(user.getAvatar_url())
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .into(holder.mAvatar);
     }
 
     @Override

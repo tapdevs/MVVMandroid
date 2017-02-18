@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,15 +22,20 @@ import android.widget.Toast;
 
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
+import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.NetworkUtils;
+import com.tapdevs.myapp.utils.RealmUtil;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,16 +43,29 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.realm.Realm;
 
 public class MainActivity extends BaseActivity {
 
 
 
+    @Inject
+    DataManager mDataManager;
+    @Inject
+    RealmUtil realm;
+    private MainActivity context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addStoriesFragment();
+        setFragment(new UsersFragment());
+    }
+
+    @Override
+    public void injectDependencies() {
+        context=this;
+        MyApp.get(context).getNetComponent().inject(context);
     }
 
     @Override
@@ -66,10 +85,12 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private void addStoriesFragment() {
+    private void setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_frame, new UsersFragment())
+                .replace(R.id.content_frame, fragment)
                 .commit();
     }
+
+
 }
