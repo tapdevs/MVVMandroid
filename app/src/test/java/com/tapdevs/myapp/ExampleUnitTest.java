@@ -1,10 +1,14 @@
 package com.tapdevs.myapp;
 
 import android.text.TextUtils;
+import android.widget.RelativeLayout;
 
+import com.tapdevs.myapp.utils.RealmUtil;
 import com.tapdevs.myapp.utils.TextCheckers;
 
 import org.junit.Test;
+
+import io.realm.Realm;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
@@ -33,5 +37,13 @@ public class ExampleUnitTest {
 
 
 
+
+    }
+
+    @Test
+    public void TestRealmUsers(){
+//        Realm.init(InstrumentationRegistry.getTargetContext());
+        RealmUtil realmUtil= new RealmUtil();
+        realmUtil.getAllUsers();
     }
 }

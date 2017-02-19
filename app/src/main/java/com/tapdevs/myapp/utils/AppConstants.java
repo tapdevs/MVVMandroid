@@ -7,4 +7,9 @@ package com.tapdevs.myapp.utils;
 public class AppConstants {
 
     public static final String SERVER_URL = "https://api.github.com/";
+
+
+    //Keys
+    public static final String USER_OBJECT_PARCELABLE_KEY = "user_profile";
+    public static final String BROWSE_FRAGMENT_TAG = "BROWSE_FRAGMENT_TAG";
 }

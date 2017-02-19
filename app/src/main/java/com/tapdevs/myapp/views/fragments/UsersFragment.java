@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -24,6 +25,7 @@ import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.injections.component.NetComponent;
 import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
 import com.tapdevs.myapp.utils.NetworkUtils;
 import com.tapdevs.myapp.utils.RealmUtil;
@@ -44,6 +46,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
+import io.realm.RealmResults;
 import rx.Subscriber;
 import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
@@ -163,9 +166,17 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     public void onNext(List<User> value) {
+        showHideOfflineLayout(false);
         hideLoadingViews();
         handleResponse(value);
+        realm.saveUserObjects(value);
 
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        realm.getRealm().close();
     }
 
     public void onError(Throwable e) {
@@ -196,9 +207,13 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
                     .subscribeOn(Schedulers.io())
                     .subscribe(this::onNext, this::onError,this::onComplete));
         }else {
-            showError(getString(R.string.noInternet));
-            showHideOfflineLayout(true);
-//            realm.executeTransaction(this::execute);
+            List<User> allOfflineUsers= realm.getAllUsers();
+            if (allOfflineUsers.size() > 0) {
+                handleResponse(realm.getAllUsers());
+            }else {
+                showError(getString(R.string.noInternet));
+            }
+
         }
     }
 
@@ -206,7 +221,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     }
     private void handleResponse(List<User> androidList) {
-
+//        showHideOfflineLayout(false);
         hideLoadingViews();
         users = new ArrayList<>(androidList);
         mAdapter = new UserAdapter(this,users);
@@ -236,17 +251,13 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         errorView.setText(message);
     }
 
-    public void saveUser(User user) {
-        realm.saveUserObject(user);
 
+    public void browseThisUser(User user) {
+        BrowseProfileFragment browseProfileFragment=new BrowseProfileFragment();
+        Bundle args= new Bundle();
+        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY,user);
+        browseProfileFragment.setArguments(args);
 
-    }
-
-    public void makeItFvtUser(ImageButton view, User user) {
-//        realm.executeTransaction(realm1 -> makeFVT(realm1));
-    }
-
-    private void makeFVT(Realm realm1) {
-
+        context.addFragment(browseProfileFragment);
     }
 }

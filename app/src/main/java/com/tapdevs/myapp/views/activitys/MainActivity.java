@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebViewFragment;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +27,11 @@ import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
 import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.NetworkUtils;
 import com.tapdevs.myapp.utils.RealmUtil;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
+import com.tapdevs.myapp.views.fragments.BrowseProfileFragment;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
 import java.util.ArrayList;
@@ -44,6 +47,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.realm.Realm;
+
+import static android.R.attr.fragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -85,10 +90,18 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private void setFragment(Fragment fragment) {
+    public void setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_frame, fragment)
+                .commit();
+    }
+
+    public void addFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.content_frame, fragment)
+                .addToBackStack(AppConstants.BROWSE_FRAGMENT_TAG)
                 .commit();
     }
 

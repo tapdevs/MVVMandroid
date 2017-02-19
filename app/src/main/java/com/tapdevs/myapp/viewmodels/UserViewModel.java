@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
@@ -36,17 +37,17 @@ public class UserViewModel extends BaseObservable {
     public static void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
                 .load(url)
+                .placeholder(R.drawable.ic_no_internet)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }
 
-    public View.OnClickListener onClickSave() {
-        return view -> context.saveUser(user);
+
+
+    public View.OnClickListener onClickView() {
+        return view -> context.browseThisUser(user);
 
     }
 
-    public View.OnClickListener onClickFvt() {
-        return view -> context.makeItFvtUser((ImageButton)view,user);
 
-    }
 }

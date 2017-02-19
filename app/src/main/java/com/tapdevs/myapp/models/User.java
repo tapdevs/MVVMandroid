@@ -1,23 +1,63 @@
 package com.tapdevs.myapp.models;
 
 import android.databinding.BaseObservable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import io.realm.Realm;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+import static android.R.attr.id;
+import static android.R.attr.type;
 
 /**
  * Created by  Jan Shair on 08/02/2017.
  */
 
-public class User extends RealmObject{
+public class User extends RealmObject implements Parcelable {
 
-    private String login,id,avatar_url,gravatar_id,url,html_url,followers_url,following_url,gists_url,
+    private String login,avatar_url,gravatar_id,url,html_url,followers_url,following_url,gists_url,
             starred_url,subscriptions_url,organizations_url,repos_url,events_url,received_events_url,type,
             site_admin;
+
+    @PrimaryKey String id;
 
     public User() {
 
     }
+
+    protected User(Parcel in) {
+        login = in.readString();
+        id = in.readString();
+        avatar_url = in.readString();
+        gravatar_id = in.readString();
+        url = in.readString();
+        html_url = in.readString();
+        followers_url = in.readString();
+        following_url = in.readString();
+        gists_url = in.readString();
+        starred_url = in.readString();
+        subscriptions_url = in.readString();
+        organizations_url = in.readString();
+        repos_url = in.readString();
+        events_url = in.readString();
+        received_events_url = in.readString();
+        type = in.readString();
+        site_admin = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public String getLogin() {
         return login;
@@ -221,4 +261,29 @@ public class User extends RealmObject{
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(login);
+        parcel.writeString(id);
+        parcel.writeString(avatar_url);
+        parcel.writeString(gravatar_id);
+        parcel.writeString(url);
+        parcel.writeString(html_url);
+        parcel.writeString(followers_url);
+        parcel.writeString(following_url);
+        parcel.writeString(gists_url);
+        parcel.writeString(starred_url);
+        parcel.writeString(subscriptions_url);
+        parcel.writeString(organizations_url);
+        parcel.writeString(repos_url);
+        parcel.writeString(events_url);
+        parcel.writeString(received_events_url);
+        parcel.writeString(type);
+        parcel.writeString(site_admin);
+    }
 }

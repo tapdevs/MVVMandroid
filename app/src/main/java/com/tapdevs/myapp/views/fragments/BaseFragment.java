@@ -1,15 +1,11 @@
 package com.tapdevs.myapp.views.fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.tapdevs.myapp.MyApp;
-import com.tapdevs.myapp.views.activitys.BaseActivity;
 
 import butterknife.ButterKnife;
 
