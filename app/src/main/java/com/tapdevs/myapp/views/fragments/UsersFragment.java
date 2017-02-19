@@ -1,19 +1,12 @@
 package com.tapdevs.myapp.views.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,14 +14,11 @@ import android.widget.TextView;
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.data.DataManager;
-import com.tapdevs.myapp.data.remote.ApiCalls;
-import com.tapdevs.myapp.injections.component.NetComponent;
-import com.tapdevs.myapp.injections.modules.NetModule;
+import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
 import com.tapdevs.myapp.utils.NetworkUtils;
-import com.tapdevs.myapp.utils.RealmUtil;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
 
@@ -38,17 +28,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Optional;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.realm.Realm;
-import io.realm.RealmResults;
-import rx.Subscriber;
-import rx.subscriptions.CompositeSubscription;
 import timber.log.Timber;
 
 import static com.tapdevs.myapp.R.layout.fragment_users;
@@ -91,7 +74,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Inject DataManager mDataManager;
     @Inject
-    RealmUtil realm;
+    RealmDataManager realm;
 
    
 
@@ -108,6 +91,9 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     public void initialize() {
+        if(realm != null && realm.getRealm().isClosed()){
+            realm.initRealm();
+        }
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         setupToolbar();
@@ -217,11 +203,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         }
     }
 
-    private void execute(Realm realm) {
-
-    }
     private void handleResponse(List<User> androidList) {
-//        showHideOfflineLayout(false);
         hideLoadingViews();
         users = new ArrayList<>(androidList);
         mAdapter = new UserAdapter(this,users);

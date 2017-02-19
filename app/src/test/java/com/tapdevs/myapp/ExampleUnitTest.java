@@ -1,19 +1,13 @@
 package com.tapdevs.myapp;
 
-import android.text.TextUtils;
-import android.widget.RelativeLayout;
-
-import com.tapdevs.myapp.utils.RealmUtil;
+import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.utils.TextCheckers;
 
 import org.junit.Test;
 
-import io.realm.Realm;
-
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -43,7 +37,7 @@ public class ExampleUnitTest {
     @Test
     public void TestRealmUsers(){
 //        Realm.init(InstrumentationRegistry.getTargetContext());
-        RealmUtil realmUtil= new RealmUtil();
-        realmUtil.getAllUsers();
+        RealmDataManager realmDataManager = new RealmDataManager();
+        realmDataManager.getAllUsers();
     }
 }

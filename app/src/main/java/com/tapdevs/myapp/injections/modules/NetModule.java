@@ -1,8 +1,6 @@
 package com.tapdevs.myapp.injections.modules;
 
 import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -10,19 +8,15 @@ import com.google.gson.GsonBuilder;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
-import com.tapdevs.myapp.injections.scope.PerDataManager;
-import com.tapdevs.myapp.utils.RealmUtil;
+import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.utils.SharedPreferenceUtil;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.realm.Realm;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
@@ -51,8 +45,8 @@ public class NetModule {
     @Provides
     @Singleton
         // Application reference must come from ApplicationModule.class
-    RealmUtil providesRealm(Application application) {
-        return new RealmUtil();
+    RealmDataManager providesRealm(Application application) {
+        return new RealmDataManager();
     }
     @Provides
     @Singleton
