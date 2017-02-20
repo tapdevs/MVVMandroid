@@ -15,8 +15,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Scheduler;
 import rx.Observable;
-import rx.Scheduler;
 import rx.functions.Func1;
 
 /**

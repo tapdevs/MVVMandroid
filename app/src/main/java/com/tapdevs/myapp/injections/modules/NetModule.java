@@ -15,10 +15,10 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
-import rx.Scheduler;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by  Jan Shair on 31/01/2017.
@@ -80,7 +80,7 @@ public class NetModule {
     @Provides
     @Singleton
     DataManager provideDataManager(Application application){
-        return new DataManager(new RetrofitHelper().newApiCalls(),Schedulers.io());
+        return new DataManager(provideApiInterface(application), provideSubscribeScheduler());
     }
 
     @Provides

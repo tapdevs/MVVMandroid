@@ -190,7 +190,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
             showHideOfflineLayout(false);
             mCompositeDisposable.add(mDataManager.getUserList()
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
+                    .subscribeOn(mDataManager.getScheduler())
                     .subscribe(this::onNext, this::onError,this::onComplete));
         }else {
             List<User> allOfflineUsers= realm.getAllUsers();
