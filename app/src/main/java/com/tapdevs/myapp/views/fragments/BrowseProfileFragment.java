@@ -3,6 +3,7 @@ package com.tapdevs.myapp.views.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.view.View;
 import android.webkit.WebView;
 
 import com.tapdevs.myapp.R;
@@ -59,6 +60,10 @@ public class BrowseProfileFragment extends BaseFragment {
     }
 
 
+    @Override
+    public View getBindingView() {
+        return null;
+    }
 
     @Override
     public void initialize() {

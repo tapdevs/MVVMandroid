@@ -23,10 +23,16 @@ public abstract class BaseFragment extends Fragment {
 
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                        Bundle savedInstanceState) {
-        View view=inflater.inflate(getFragmentLayout(), container, false);
+        View view=getBindingView(inflater,getFragmentLayout(),container,false);
+        if(view == null) {
+            view = inflater.inflate(getFragmentLayout(), container, false);
+        }
 
         return view;
     }
+
+    public abstract View getBindingView(LayoutInflater inflater, int fragmentLayout, ViewGroup container, boolean b);
+
 
     /**
      * Initialize any core functions

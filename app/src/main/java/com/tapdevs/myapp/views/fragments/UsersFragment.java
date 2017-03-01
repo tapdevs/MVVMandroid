@@ -1,12 +1,15 @@
 package com.tapdevs.myapp.views.fragments;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,6 +37,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
+import static android.R.attr.tag;
 import static com.tapdevs.myapp.R.layout.fragment_users;
 
 /**
@@ -88,6 +92,11 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
 
+
+    @Override
+    public View getBindingView(LayoutInflater inflater, int fragmentLayout, ViewGroup container, boolean b) {
+        return null;
+    }
 
     @Override
     public void initialize() {

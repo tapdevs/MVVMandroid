@@ -55,6 +55,7 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
         exclude 'META-INF/rxjava.properties'
+
     }
 
 
@@ -98,6 +99,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
 
     })
+    testCompile 'org.robolectric:robolectric:3.2.2'
 
     compile "com.google.android.gms:play-services-auth:$PLAY_SERVICES_VERSION"
 
@@ -113,10 +115,8 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
     compile "io.reactivex.rxjava2:rxandroid:$RXJAVA_VERSION"
 
-    //Glide
-    
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+
 
 
     
@@ -143,7 +143,9 @@ dependencies {
     androidTestCompile 'junit:junit:4.12'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.0.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
-    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.0'}
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.0'
+
+}
 
 
 

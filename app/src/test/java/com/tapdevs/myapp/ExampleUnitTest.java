@@ -1,12 +1,15 @@
 package com.tapdevs.myapp;
 
 import com.tapdevs.myapp.data.RealmDataManager;
+import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.TextCheckers;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
 /**
@@ -29,6 +32,15 @@ public class ExampleUnitTest {
         assertFalse(TextCheckers.isEmailValid("name@e212"));
         assertTrue(TextCheckers.isEmailValid("namads34534e@emafsdfdsil.io"));
 
+
+
+
+    }
+
+    @Test
+    public  void testMockUser(){
+        User user= Mockito.mock(User.class);
+        assertNotNull(TextCheckers.isEmailValid(user.getAvatar_url()));
 
 
 

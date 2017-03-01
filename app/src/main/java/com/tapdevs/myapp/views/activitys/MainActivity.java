@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity {
     public void setFragment(Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_frame, fragment)
+                .replace(R.id.content_frame, fragment,fragment.getClass().getSimpleName())
                 .commit();
     }
 

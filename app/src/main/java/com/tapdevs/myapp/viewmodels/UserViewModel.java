@@ -14,6 +14,8 @@ import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
+import static android.R.string.no;
+
 /**
  * Created by  Jan Shair on 15/02/2017.
  */
@@ -35,6 +37,7 @@ public class UserViewModel extends BaseObservable {
 
     @BindingAdapter("bind:imageUrl")
     public static void loadImage(ImageView imageView, String url) {
+
         Glide.with(imageView.getContext())
                 .load(url)
                 .placeholder(R.drawable.ic_no_internet)
