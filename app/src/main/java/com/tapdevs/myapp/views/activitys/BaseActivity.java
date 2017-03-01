@@ -1,12 +1,15 @@
 package com.tapdevs.myapp.views.activitys;
 
 import android.app.FragmentManager;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.tapdevs.myapp.MyApp;
+import com.tapdevs.myapp.R;
+import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.views.fragments.BaseFragment;
 
 
@@ -22,6 +25,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context=this;
+//        MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
+//        User user = new User("Test", "User");
+//        binding.setUser(user);
         injectDependencies();
         injectViews();
     }
