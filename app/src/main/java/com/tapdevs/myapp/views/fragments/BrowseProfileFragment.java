@@ -3,7 +3,9 @@ package com.tapdevs.myapp.views.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.tapdevs.myapp.R;
@@ -61,7 +63,7 @@ public class BrowseProfileFragment extends BaseFragment {
 
 
     @Override
-    public View getBindingView() {
+    public View getBindingView(LayoutInflater inflater, int fragmentLayout, ViewGroup container, boolean b) {
         return null;
     }
 

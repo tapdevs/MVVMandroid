@@ -8,6 +8,7 @@ import com.tapdevs.myapp.injections.component.NetComponent;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.utils.AppConstants;
+import com.tapdevs.myapp.utils.CrashlyticsTree;
 
 
 import io.realm.Realm;
@@ -32,7 +33,7 @@ public class MyApp extends Application {
                 .netModule(new NetModule(AppConstants.SERVER_URL))
                 .build();
 
-        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree());
+        if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree()); else     Timber.plant(new CrashlyticsTree());
         Realm.init(this);
 
     }
