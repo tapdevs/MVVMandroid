@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/jsh57/Documents/androidmvvm/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/sheikh/Downloads/AndroidstudioProjects/MyApp/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e1e96545c9442073b988943cb8612df864bb9ab3">
+        <dex dex="/Users/sheikh/Downloads/AndroidstudioProjects/MyApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_8263f13fa6d8a5c4eb4de9d0da5ec1f01d1f6a88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/sheikh/Downloads/AndroidstudioProjects/MyApp/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/Users/jsh57/Documents/androidmvvm/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_fecd0b4d3b97093f360e42701c5e11e31a95ae59/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/jsh57/Documents/androidmvvm/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2e0060e25dc639f3157128fe137fe1e9714a2569">
-        <dex dex="/Users/jsh57/Documents/androidmvvm/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_67b5c0d20da1057d4ee3af92a011c5e2e432bdbc/classes.dex" />
+        <dex dex="/Users/sheikh/Downloads/AndroidstudioProjects/MyApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_acf6c01fa2cacf83a91306eaced54c0bdbd1f349/classes.dex" />
     </item>
 
 </items>
