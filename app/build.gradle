@@ -9,6 +9,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     compileOptions.incremental = false
+    publishNonDefault true
     defaultConfig {
         applicationId "com.tapdevs.myapp"
         minSdkVersion 15
@@ -31,9 +32,13 @@ android {
 //        targetCompatibility JavaVersion.VERSION_1_8
 //    }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules-optimize.pro'
         }
 
     }
