@@ -16,19 +16,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.activitys.SplashActivity">
+        <activity
+            android:name=".views.activitys.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenLayout"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".views.activitys.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenLayout"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".views.activitys.LoginActivity"

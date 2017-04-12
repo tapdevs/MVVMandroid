@@ -2,7 +2,6 @@ package com.tapdevs.myapp.injections.modules;
 
 import android.app.Application;
 
-import com.tapdevs.myapp.views.activitys.SplashActivity;
 
 import javax.inject.Singleton;
 
