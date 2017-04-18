@@ -120,16 +120,6 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
     compile "io.reactivex.rxjava2:rxandroid:$RXJAVA_VERSION"
 
-
-
-
-
-    
-
-
-
-
-    
     retrolambda {
         jvmArgs '-noverify'
     }
@@ -150,6 +140,10 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.0'
 
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 
 
