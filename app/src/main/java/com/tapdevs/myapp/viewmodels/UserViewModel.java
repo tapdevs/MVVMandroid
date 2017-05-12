@@ -35,7 +35,7 @@ public class UserViewModel extends BaseObservable {
 
 
 
-    @BindingAdapter("bind:imageUrl")
+    @BindingAdapter("imageUrl")
     public static void loadImage(ImageView imageView, String url) {
 
         Glide.with(imageView.getContext())
@@ -47,8 +47,8 @@ public class UserViewModel extends BaseObservable {
 
 
 
-    public View.OnClickListener onClickView() {
-        return view -> context.browseThisUser(user);
+    public void onClickView(View view) {
+        context.browseThisUser(user);
 
     }
 

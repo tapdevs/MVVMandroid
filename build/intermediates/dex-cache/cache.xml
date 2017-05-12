@@ -12,21 +12,30 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/ee9a8c2dbfbcd6a9755c7cba5db907463b043ec3/output/jars/classes.jar"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_980f6829d3121fbd513e84ad7850904ad6411db8.jar" />
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/okio-1.8.0_1490d65b27aa9a04ae09274368b2ca8a41eb7e71.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/9f57010d70b4acccfc9737c88390e1e67cb3d5c1/output/jars/classes.jar"
+        jar="/Users/jsh57/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_1757c2d4b1272185a5221684e54b9b59830a71a4.jar" />
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_80af8bbd07a4fb67be72561ba7f83094a6593302.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/2.3.1/1c1c75a7e1dfee58c51822987dc658f93e036c81/realm-annotations-2.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1c1c75a7e1dfee58c51822987dc658f93e036c81">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/realm-annotations-2.3.1_adc9c15ba8f12de2238069b91b5d97a1df0638c5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -48,12 +57,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/jsh57/.android/build-cache/a495e1cb0c4c632b731cfcacd52fef1b2915dec7/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="688809418e4c2b5014a028c02708d6aeaba466ff">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_05530cd40cc0408277445ec474f27192011ed757.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/jsh57/.android/build-cache/8cce35a14c3a70c50fe9f9c8e0eff6fa7544b1b2/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
         <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_bf54dec40753955d1fbaf72615375ffbc1052650.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.8.0/9bada650e1afe9c6174ddc0d113c1fce4dc26fe0/glide-3.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9bada650e1afe9c6174ddc0d113c1fce4dc26fe0">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/glide-3.8.0_6f1c12e2e855a7a39a407be237a2f1fb648c7253.jar" />
     </item>
     <item
         is-multidex="false"
@@ -84,12 +111,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/405b1afe55674dfddc0887723211400ceca6efff/output/jars/classes.jar"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_25edb339b201b75533f5ee1993fcd5b9f2268150.jar" />
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/reactive-streams-1.0.0_3339ba86ec994c21eba38bb0d1b1b2d9d118c922.jar" />
     </item>
     <item
         is-multidex="false"
@@ -102,39 +129,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/b15cf91305c09d68d464fc7d226d0936f1665145/output/jars/classes.jar"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.5/288101b16513158c2923ad3fb6161d1452b65e73/leakcanary-watcher-1.5.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_1ba89d8edd4e68915b0e4a83fb15419c53628eb4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.5.2/ecf534dba3a8446ce84cbb797d314763be212a68/glide-3.5.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecf534dba3a8446ce84cbb797d314763be212a68">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/glide-3.5.2_8d13b74390d52c5b8afd361e2133facccc74eb83.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/627621c250fa3526a1519fc714110b691b0ce4e9/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_e84dde1152e1fe2e44803bed880601a666186bf9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/455c7a3bd88628cd318a1c5c5dec92766dd94ab2/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_39a272207a4c6e75447776b7f9a44de1d358be72.jar" />
+        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/leakcanary-watcher-1.5_aa9a9f0a4a7824027cff6da90b97de86705c857c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -165,21 +165,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.0.2/de8416eda7b2fd7c25836b140c39e1cbf10542f6/dagger-2.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="de8416eda7b2fd7c25836b140c39e1cbf10542f6">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/dagger-2.0.2_7b7272311c2661d8dd69ec6973531ff761354773.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/jsh57/.android/build-cache/d754f31cc7db75075afc1e4bfc4bbf7d94f527e0/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="68956f5ba1517b7a3d513ba540548e257741cbae">
         <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_6f3000fc3bb934d134300d3027a4d3cec05764b2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="898f9ab61e2a23afd615f0b0389478bec86f49f9">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/rxjava-1.0.14_cfef3cdbdfba95f91cff0f6b420b5e956ebf27b5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -192,12 +192,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.5.1/bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc/butterknife-annotations-8.5.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.5.1_1ba61391716f100685d1da605ff8909d70b97a75.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.android/build-cache/881a528b78ea2115185c59f1daeeb197c5b144d8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aa6a6e385297077a344e0bb95ab6c22f22119261">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_5409a129a6a8c3faa9beafe44c84216475138754.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/jsh57/.android/build-cache/de1ad322d1fdd9987a0cb4c978b661471a2a3069/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="c74c28a44292b6480afe69ddb2c0974f45393a3a">
         <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_de1368123e69f8ee277139e24351c01c9266e5f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.google.dagger/dagger/2.10/72b1eae80561b66f0a24b300ab0dfafde959eb58/dagger-2.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="72b1eae80561b66f0a24b300ab0dfafde959eb58">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/dagger-2.10_579e73ec6d769d6b62b32d3ffb33672f24f00867.jar" />
     </item>
     <item
         is-multidex="false"
@@ -210,21 +237,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_688d71f665a0fb304825248a826d298e42f94bf8.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
         <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0_07eb957328c604626e64f8f0f96940b0aff7bd58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.android/build-cache/1f8c4e44093a6f51da2ef5b24f56caab8f3b31fe/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_071c49e94865e91a28007a83a88fba3beb47dc9a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -237,30 +264,39 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/f76bd4705f5f195ec7df1d269b4cdba115bf3fa0/output/jars/classes.jar"
+        jar="/Users/jsh57/.android/build-cache/70943e3d12edede1dc63e2746bb05a619ec300cf/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_af62f9b117e7849858c0e1714227cca05f0365a4.jar" />
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_cb3ac825a69057a521cc2b776de65a8e771a820f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/f4b9464e707b1aaf227ceaf97abb87dd429f50f6/output/jars/classes.jar"
+        jar="/Users/jsh57/.android/build-cache/b2ae0d13a2eae39ebc4b3f117089e621f25252fb/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_08ea871943a93cad9d835c70501773c3954047d7.jar" />
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_ed477d09ba51b5efeef5ff090ba1ce94ab3066b9.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/4ad89b2802eab91cfe74ed757fdb30b3e39ca9db/output/jars/classes.jar"
+        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/adapter-rxjava/2.0.0-beta1/27db6ccd014c866500af30d92fbfad0e3cc99ee8/adapter-rxjava-2.0.0-beta1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_db359c07f295c69032de82ae981c1706a88fd733.jar" />
+        sha1="27db6ccd014c866500af30d92fbfad0e3cc99ee8">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/adapter-rxjava-2.0.0-beta1_0fb0bcf2694114aabd6d6bdf7707528512f156b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/jsh57/.android/build-cache/b056e48f425f17b2e50b0af14d8cd9c1fa34a290/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_73a1d8a22a3d619e0dcc51f0412eda226ee0c8c2.jar" />
     </item>
     <item
         is-multidex="false"
@@ -288,168 +324,6 @@
         revision="25.0.2"
         sha1="3277b0b0c2ace34a2edb5ddf9d1f67829561fb8f">
         <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/leakcanary-analyzer-1.5_cd1948fb52f9dfac0e801e9b42794d95840d7699.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/9c561900c2da53321f8467dc401dbc4869baf5bb/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_183671f7e2df4b15937f546645bd90cc2dce4ae1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/okio-1.8.0_1490d65b27aa9a04ae09274368b2ca8a41eb7e71.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-beta4_80af8bbd07a4fb67be72561ba7f83094a6593302.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/bd0a6e384226bbbfa1d2e9afb63ac623fbbce85b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_1c5af3849cf62ca47577af6dcce40614b32e5b98.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/1af0d4fb3975fa7f6c29c0d30add60a9324d0674/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_f4ef6aee866c3a7546e892027b3bfc8d67ec1ea4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/2.3.1/1c1c75a7e1dfee58c51822987dc658f93e036c81/realm-annotations-2.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1c1c75a7e1dfee58c51822987dc658f93e036c81">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/realm-annotations-2.3.1_adc9c15ba8f12de2238069b91b5d97a1df0638c5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.0/14b8c877d98005ba3941c9257cfe09f6ed0e0d74/reactive-streams-1.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/reactive-streams-1.0.0_3339ba86ec994c21eba38bb0d1b1b2d9d118c922.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/4c72fa43da56a024e7917e95e744ac5b2cc943b0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a8ae156c2726ac9c56daaf4b49452ec2cdb7bba9">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_0e9a40ab29ccde2a160a4a1a3047cb5e64d0db95.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.5/288101b16513158c2923ad3fb6161d1452b65e73/leakcanary-watcher-1.5.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="288101b16513158c2923ad3fb6161d1452b65e73">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/leakcanary-watcher-1.5_aa9a9f0a4a7824027cff6da90b97de86705c857c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/a2d88c01e3403bed25bf15e68c5cb2004ee67098/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_ba092f12fa260eb48840599d2eec3b8b81116728.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.14/898f9ab61e2a23afd615f0b0389478bec86f49f9/rxjava-1.0.14.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="898f9ab61e2a23afd615f0b0389478bec86f49f9">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/rxjava-1.0.14_cfef3cdbdfba95f91cff0f6b420b5e956ebf27b5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.5.1/bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc/butterknife-annotations-8.5.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.5.1_1ba61391716f100685d1da605ff8909d70b97a75.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/1f8c4e44093a6f51da2ef5b24f56caab8f3b31fe/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_071c49e94865e91a28007a83a88fba3beb47dc9a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/adapter-rxjava/2.0.0-beta1/27db6ccd014c866500af30d92fbfad0e3cc99ee8/adapter-rxjava-2.0.0-beta1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="27db6ccd014c866500af30d92fbfad0e3cc99ee8">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/adapter-rxjava-2.0.0-beta1_0fb0bcf2694114aabd6d6bdf7707528512f156b4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/bfc94907e552dd61021d31ce347d967e922df792/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_ea46b447a189a7a171558db6c2905969ddba8fb3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/ef2e11547920140552bf2772caf5fbaf0425ddd4/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_1c6467587f8dc17b777b2054269199f84ab1bc9e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/78e3a88f3e60a133a743522ae88a546371dc613d/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_7ebe3c8431feaa1bbbe20a765f2a491aaead149f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/jsh57/.android/build-cache/f83bdfabad7e3cd1f3146bacde393b439fdf00c1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="/Users/jsh57/Documents/AndroidStudioProjects/MVVMandroid/app/build/intermediates/pre-dexed/debug/classes_d8c48c497d6ea3a3bf751c40e98ee19e46fe17cc.jar" />
     </item>
 
 </items>
