@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
+import com.tapdevs.myapp.abstractions.NetworkStatus;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.models.User;
@@ -193,7 +194,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
     private void loadUsersIfNetworkConnected() {
 
-        if(NetworkUtils.checkInternet(context)){
+        if(AppConstants.networkStatus != NetworkStatus.networkStatusNotReachable){
 
 
             showHideOfflineLayout(false);

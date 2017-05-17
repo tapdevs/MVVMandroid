@@ -32,6 +32,12 @@
             android:name=".views.activitys.LoginActivity"
             android:label="@string/title_activity_login">
         </activity>
+
+        <receiver android:name=".utils.NetworkReachabilityReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

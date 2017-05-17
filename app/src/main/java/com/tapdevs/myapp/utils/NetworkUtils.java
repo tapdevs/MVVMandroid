@@ -21,7 +21,7 @@ import static com.tapdevs.myapp.utils.SnackBarUtils.showSnackBarOnNoInternet;
 
 public class NetworkUtils {
 
-    public static boolean checkInternet(Activity context){
+    private static boolean checkInternet(Activity context){
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
