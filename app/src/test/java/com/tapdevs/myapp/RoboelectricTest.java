@@ -1,19 +1,10 @@
 package com.tapdevs.myapp;
 
-import android.content.Context;
-import android.util.Log;
-
-import com.tapdevs.myapp.models.User;
-import com.tapdevs.myapp.utils.TextCheckers;
 import com.tapdevs.myapp.views.activitys.MainActivity;
-import com.tapdevs.myapp.views.fragments.UsersFragment;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;

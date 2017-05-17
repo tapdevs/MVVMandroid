@@ -12,7 +12,6 @@ import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.CrashlyticsTree;
 
 
-import io.realm.Realm;
 import timber.log.Timber;
 
 /**
@@ -41,7 +40,6 @@ public class MyApp extends Application {
                 .build();
 
         if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree()); else     Timber.plant(new CrashlyticsTree());
-        Realm.init(this);
 
     }
 

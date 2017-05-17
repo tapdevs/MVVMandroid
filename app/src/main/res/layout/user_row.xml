@@ -23,7 +23,7 @@
         <ImageView android:layout_width="@dimen/image_width"
                    android:layout_margin="@dimen/activity_horizontal_margin"
                    android:id="@+id/iv_avatar"
-                   app:imageUrl="@{viewModel.user.avatar_url}"
+                   app:imageUrl="@{viewModel.gameData.name}"
                    android:layout_height="@dimen/image_width"/>
 
     <LinearLayout
@@ -41,7 +41,7 @@
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:textColor="@android:color/black"
-            android:text="@{viewModel.user.login}"
+            android:text="@{viewModel.gameData.name}"
             android:layout_height="wrap_content"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
             android:id="@+id/tv_url"
             android:layout_width="wrap_content"
             android:textColor="@android:color/black"
-            android:text="@{viewModel.user.html_url}"
+            android:text="@{viewModel.gameData.name}"
             android:layout_height="wrap_content" />
 
 

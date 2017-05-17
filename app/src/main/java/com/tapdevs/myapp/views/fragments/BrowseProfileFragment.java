@@ -2,14 +2,13 @@ package com.tapdevs.myapp.views.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.tapdevs.myapp.R;
-import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.models.GameData;
 import com.tapdevs.myapp.utils.AppConstants;
 
 import butterknife.BindView;
@@ -30,7 +29,7 @@ public class BrowseProfileFragment extends BaseFragment {
     WebView webView;
 
     // TODO: Rename and change types of parameters
-    private User userObject;
+    private GameData gameDataObject;
 
 
     public BrowseProfileFragment() {
@@ -41,14 +40,14 @@ public class BrowseProfileFragment extends BaseFragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param userObject Parameter 1.
+     * @param gameDataObject Parameter 1.
      * @return A new instance of fragment BrowseProfileFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BrowseProfileFragment newInstance(User userObject) {
+    public static BrowseProfileFragment newInstance(GameData gameDataObject) {
         BrowseProfileFragment fragment = new BrowseProfileFragment();
         Bundle args = new Bundle();
-        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY, userObject);
+//        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY, gameDataObject);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,7 +56,7 @@ public class BrowseProfileFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            userObject = getArguments().getParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY);
+            gameDataObject = getArguments().getParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY);
         }
     }
 
@@ -69,7 +68,7 @@ public class BrowseProfileFragment extends BaseFragment {
 
     @Override
     public void initialize() {
-        webView.loadUrl(userObject.getHtml_url());
+        webView.loadUrl(gameDataObject.getCurrency());
         webView.getSettings().setJavaScriptEnabled(true);
 
     }

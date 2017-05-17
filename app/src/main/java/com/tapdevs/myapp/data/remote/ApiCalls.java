@@ -1,6 +1,6 @@
 package com.tapdevs.myapp.data.remote;
 
-import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.models.GameData;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 
 public interface ApiCalls {
 
-    @GET("users")
-    Observable<List<User>> getUsers();
+    @GET("2ewt6r22zo4qwgx/gameData.json")
+    Observable<GameData> getUsers();
 
 }

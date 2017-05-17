@@ -5,7 +5,6 @@ import android.app.Application;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
-import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.utils.SharedPreferenceUtil;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
@@ -27,7 +26,6 @@ public interface NetComponent {
      void inject(UsersFragment fragment);
 
     SharedPreferenceUtil provideSharedPreferences();
-    RealmDataManager providesRealm();
     DataManager provideDataManager();
 
 }

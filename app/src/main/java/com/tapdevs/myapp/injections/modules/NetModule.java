@@ -8,7 +8,6 @@ import com.google.gson.GsonBuilder;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.data.remote.RetrofitHelper;
-import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.utils.SharedPreferenceUtil;
 
 import javax.inject.Singleton;
@@ -42,12 +41,7 @@ public class NetModule {
         return new SharedPreferenceUtil(application);
     }
 
-    @Provides
-    @Singleton
-        // Application reference must come from ApplicationModule.class
-    RealmDataManager providesRealm(Application application) {
-        return new RealmDataManager();
-    }
+
     @Provides
     @Singleton
     Cache provideOkHttpCache(Application application) {

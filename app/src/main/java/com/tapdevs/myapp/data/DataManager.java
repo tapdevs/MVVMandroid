@@ -8,7 +8,7 @@ import com.tapdevs.myapp.data.remote.ApiCalls;
 import com.tapdevs.myapp.injections.component.DaggerNetComponent;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
-import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.models.GameData;
 import com.tapdevs.myapp.utils.AppConstants;
 
 import java.util.List;
@@ -16,8 +16,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Scheduler;
-import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * Created by  Jan Shair on 31/01/2017.
@@ -52,7 +50,7 @@ public class DataManager {
         return mSubscribeScheduler;
     }
 
-    public io.reactivex.Observable<List<User>> getUserList() {
+    public io.reactivex.Observable<GameData> getUserList() {
         return apiCalls.getUsers();
 
     }

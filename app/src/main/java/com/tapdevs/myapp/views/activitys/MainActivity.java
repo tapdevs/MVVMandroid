@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.data.DataManager;
-import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
@@ -20,8 +19,8 @@ public class MainActivity extends BaseActivity {
 
     @Inject
     DataManager mDataManager;
-    @Inject
-    RealmDataManager realm;
+
+
     private MainActivity context;
 
     @Override

@@ -1,32 +1,19 @@
 package com.tapdevs.myapp.views.adapters;
 
-import android.app.Activity;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.databinding.UserRowBinding;
-import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.models.GameData;
+import com.tapdevs.myapp.models.GameObject;
 import com.tapdevs.myapp.viewmodels.UserViewModel;
-import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static android.R.attr.country;
 
 /**
  * Created by  Jan Shair on 08/02/2017.
@@ -34,17 +21,17 @@ import static android.R.attr.country;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder> {
 
-    private List<User> userArrayList;
+    private List<GameObject> gameDataArrayList;
     private UsersFragment context;
 
-    public UserAdapter(UsersFragment context, List<User> androidList) {
+    public UserAdapter(UsersFragment context, List<GameObject> androidList) {
         this.context=context;
-        userArrayList = androidList;
+        gameDataArrayList = androidList;
 
     }
 
-    public void setItems(List<User> posts) {
-        userArrayList = posts;
+    public void setItems(List<GameObject> posts) {
+        gameDataArrayList = posts;
         notifyDataSetChanged();
     }
 
@@ -62,14 +49,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder>
     @Override
     public void onBindViewHolder(BindingHolder holder, int position) {
 
-        User user=userArrayList.get(position);
+        GameObject gameData = gameDataArrayList.get(position);
         UserRowBinding commentsHeaderBinding = (UserRowBinding) holder.binding;
-        commentsHeaderBinding.setViewModel(new UserViewModel(context, user));
+        commentsHeaderBinding.setViewModel(new UserViewModel(context, gameData));
     }
 
     @Override
     public int getItemCount() {
-        return userArrayList.size();
+        return gameDataArrayList.size();
     }
 
     public class BindingHolder extends RecyclerView.ViewHolder{

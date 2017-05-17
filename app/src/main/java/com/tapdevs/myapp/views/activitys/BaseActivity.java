@@ -2,28 +2,20 @@ package com.tapdevs.myapp.views.activitys;
 
 import android.app.FragmentManager;
 import android.content.IntentFilter;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.tapdevs.myapp.MyApp;
-import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.abstractions.EventListener;
 import com.tapdevs.myapp.abstractions.IEvent;
 import com.tapdevs.myapp.abstractions.IEventHandler;
 import com.tapdevs.myapp.abstractions.NetworkStatus;
 import com.tapdevs.myapp.data.receivers.Event;
-import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.NetworkReachabilityReceiver;
 import com.tapdevs.myapp.utils.SnackBarUtils;
-import com.tapdevs.myapp.views.fragments.BaseFragment;
 
 
 import org.json.JSONObject;
-
-import java.util.List;
 
 import butterknife.ButterKnife;
 

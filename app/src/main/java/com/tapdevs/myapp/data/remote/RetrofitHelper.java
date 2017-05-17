@@ -6,7 +6,6 @@ import com.tapdevs.myapp.utils.AppConstants;
 
 import io.reactivex.android.plugins.RxAndroidPlugins;
 import io.reactivex.plugins.RxJavaPlugins;
-import io.realm.rx.RxObservableFactory;
 import retrofit.RxJavaCallAdapterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

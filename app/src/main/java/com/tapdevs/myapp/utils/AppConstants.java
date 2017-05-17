@@ -8,7 +8,7 @@ import com.tapdevs.myapp.abstractions.NetworkStatus;
 
 public class AppConstants {
 
-    public static final String SERVER_URL = "https://api.github.com/";
+    public static final String SERVER_URL = "https://dl.dropboxusercontent.com/s/";
 
 
     //Keys

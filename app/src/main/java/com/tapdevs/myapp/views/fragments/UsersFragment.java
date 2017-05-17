@@ -1,10 +1,8 @@
 package com.tapdevs.myapp.views.fragments;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -18,12 +16,11 @@ import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.abstractions.NetworkStatus;
 import com.tapdevs.myapp.data.DataManager;
-import com.tapdevs.myapp.data.RealmDataManager;
-import com.tapdevs.myapp.models.User;
+import com.tapdevs.myapp.models.GameData;
+import com.tapdevs.myapp.models.GameObject;
 import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
 import com.tapdevs.myapp.utils.GridAutofitLayoutManager;
-import com.tapdevs.myapp.utils.NetworkUtils;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
 
@@ -36,10 +33,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-import static android.R.attr.tag;
 import static com.tapdevs.myapp.R.layout.fragment_users;
 
 /**
@@ -59,7 +54,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private UserAdapter mAdapter;
 
-    private ArrayList<User> users;
+    private List<GameObject> gameDatas;
     @BindView(R.id.swipe_container)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -79,8 +74,6 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     @Inject DataManager mDataManager;
-    @Inject
-    RealmDataManager realm;
 
    
 
@@ -89,8 +82,8 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         super.onCreate(savedInstanceState);
         context=(MainActivity)getActivity();
         mCompositeDisposable = new CompositeDisposable();
-        users = new ArrayList<>();
-        mAdapter = new UserAdapter(this, users);
+        gameDatas = new ArrayList<>();
+        mAdapter = new UserAdapter(this, gameDatas);
     }
 
 
@@ -102,9 +95,6 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     public void initialize() {
-        if(realm != null && realm.getRealm().isClosed()){
-            realm.initRealm();
-        }
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         setupToolbar();
@@ -131,7 +121,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onRefresh() {
         mCompositeDisposable.clear();
-        if (mAdapter != null) mAdapter.setItems(new ArrayList<User>());
+        if (mAdapter != null) mAdapter.setItems(new ArrayList<GameObject>());
 
         loadUsersIfNetworkConnected();
     }
@@ -157,33 +147,31 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     private void setupRecyclerView() {
         mRecyclerView.setLayoutManager(new GridAutofitLayoutManager(this.getContext(),300));
         mRecyclerView.setHasFixedSize(true);
-        mAdapter.setItems(users);
+        mAdapter.setItems(gameDatas);
         mRecyclerView.setAdapter(mAdapter);
     }
 
 
-    public void onNext(List<User> value) {
+    public void onNext(GameData value) {
         showHideOfflineLayout(false);
         hideLoadingViews();
         handleResponse(value);
-        realm.saveUserObjects(value);
 
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        realm.getRealm().close();
     }
 
     public void onError(Throwable e) {
         handleError(e);
         hideLoadingViews();
-        Timber.e("There was a problem loading users " + e);
+        Timber.e("There was a problem loading gameDatas " + e);
         e.printStackTrace();
         DialogFactory.createSimpleOkErrorDialog(
                 context,
-                "There was a problem loading users " + e
+                "There was a problem loading gameDatas " + e
         ).show();
     }
 
@@ -204,20 +192,20 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
                     .subscribeOn(mDataManager.getScheduler())
                     .subscribe(this::onNext, this::onError,this::onComplete));
         }else {
-            List<User> allOfflineUsers= realm.getAllUsers();
-            if (allOfflineUsers.size() > 0) {
-                handleResponse(realm.getAllUsers());
-            }else {
-                showError(getString(R.string.noInternet));
-            }
+//            List<GameData> allOfflineGameDatas = realm.getAllUsers();
+//            if (allOfflineGameDatas.size() > 0) {
+//                handleResponse(realm.getAllUsers());
+//            }else {
+//                showError(getString(R.string.noInternet));
+//            }
 
         }
     }
 
-    private void handleResponse(List<User> androidList) {
+    private void handleResponse(GameData androidList) {
         hideLoadingViews();
-        users = new ArrayList<>(androidList);
-        mAdapter = new UserAdapter(this,users);
+        gameDatas = androidList.getData();
+        mAdapter = new UserAdapter(this, gameDatas);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -245,10 +233,10 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
 
-    public void browseThisUser(User user) {
+    public void browseThisUser(GameObject gameData) {
         BrowseProfileFragment browseProfileFragment=new BrowseProfileFragment();
         Bundle args= new Bundle();
-        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY,user);
+//        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY, gameData);
         browseProfileFragment.setArguments(args);
 
         context.addFragment(browseProfileFragment);
