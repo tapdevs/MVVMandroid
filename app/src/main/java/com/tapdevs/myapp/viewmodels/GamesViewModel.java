@@ -27,7 +27,7 @@ public class GamesViewModel extends BaseObservable {
 
 
     public String getJackpotValue() {
-        return "GBP "+gameData.getJackpot();
+        return context.getCurrency()+ " " +gameData.getJackpot();
 
     }
 

@@ -73,8 +73,12 @@ public class GamesListFragment extends BaseFragment implements SwipeRefreshLayou
 
 
     @Inject DataManager mDataManager;
+    private String currency;
 
-   
+
+    public String getCurrency(){
+        return currency;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -196,6 +200,7 @@ public class GamesListFragment extends BaseFragment implements SwipeRefreshLayou
 
     private void handleResponse(GameData androidList) {
         hideLoadingViews();
+        currency=androidList.getCurrency();
         gameDatas = androidList.getData();
         mAdapter = new GamesAdapter(this, gameDatas);
         mRecyclerView.setAdapter(mAdapter);
