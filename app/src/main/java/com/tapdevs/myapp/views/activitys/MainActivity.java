@@ -9,7 +9,7 @@ import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.utils.AppConstants;
-import com.tapdevs.myapp.views.fragments.UsersFragment;
+import com.tapdevs.myapp.views.fragments.GamesListFragment;
 
 import javax.inject.Inject;
 
@@ -21,37 +21,19 @@ public class MainActivity extends BaseActivity {
     DataManager mDataManager;
 
 
-    private MainActivity context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context=this;
         setContentView(R.layout.activity_main);
-        setFragment(new UsersFragment());
+        setFragment(new GamesListFragment());
     }
 
     @Override
     public void injectDependencies() {
-        context=this;
-        MyApp.get(context).getNetComponent().inject(context);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_view_on_github:
-                //TODO: Add github link
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     public void setFragment(Fragment fragment) {
         getSupportFragmentManager()
@@ -64,7 +46,7 @@ public class MainActivity extends BaseActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_frame, fragment)
-                .addToBackStack(AppConstants.BROWSE_FRAGMENT_TAG)
+                .addToBackStack(AppConstants.PLAYER_FRAGMENT_TAG)
                 .commit();
     }
 

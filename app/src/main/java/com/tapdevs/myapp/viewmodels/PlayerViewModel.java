@@ -2,34 +2,32 @@ package com.tapdevs.myapp.viewmodels;
 
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tapdevs.myapp.R;
-import com.tapdevs.myapp.models.GameData;
-import com.tapdevs.myapp.models.GameObject;
-import com.tapdevs.myapp.views.fragments.UsersFragment;
+import com.tapdevs.myapp.models.PlayerInfo;
+import com.tapdevs.myapp.views.fragments.GamesListFragment;
+import com.tapdevs.myapp.views.fragments.PlayerInfoFragment;
 
 /**
- * Created by  Jan Shair on 15/02/2017.
+ * Created by  Jan Shair on 17/05/2017.
  */
 
-public class UserViewModel extends BaseObservable {
-    private UsersFragment context;
-    private GameObject gameData;
+public class PlayerViewModel extends BaseObservable {
 
-    public GameObject getGameData() {
-        return gameData;
+    private PlayerInfoFragment context;
+    private PlayerInfo playerInfo;
+
+    public PlayerInfo getPlayerInfo() {
+        return playerInfo;
     }
 
-    public UserViewModel(UsersFragment context, GameObject gameData) {
+    public PlayerViewModel(PlayerInfoFragment context, PlayerInfo playerInfo) {
         this.context=context;
-        this.gameData = gameData;
+        this.playerInfo = playerInfo;
     }
-
-
 
     @BindingAdapter("imageUrl")
     public static void loadImage(ImageView imageView, String url) {
@@ -39,13 +37,6 @@ public class UserViewModel extends BaseObservable {
                 .placeholder(R.drawable.ic_no_internet)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
-    }
-
-
-
-    public void onClickView(View view) {
-        context.browseThisUser(gameData);
-
     }
 
 

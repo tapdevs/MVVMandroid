@@ -14,16 +14,15 @@ import android.widget.TextView;
 
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.R;
-import com.tapdevs.myapp.abstractions.NetworkStatus;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.models.GameData;
 import com.tapdevs.myapp.models.GameObject;
-import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
 import com.tapdevs.myapp.utils.GridAutofitLayoutManager;
 import com.tapdevs.myapp.views.activitys.MainActivity;
-import com.tapdevs.myapp.views.adapters.UserAdapter;
+import com.tapdevs.myapp.views.adapters.GamesAdapter;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,13 +34,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import timber.log.Timber;
 
-import static com.tapdevs.myapp.R.layout.fragment_users;
+import static com.tapdevs.myapp.R.layout.fragment_games_list;
 
 /**
  * Created by  Jan Shair on 15/02/2017.
  */
 
-public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class GamesListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
 
     private MainActivity context;
@@ -52,7 +51,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private CompositeDisposable mCompositeDisposable;
 
-    private UserAdapter mAdapter;
+    private GamesAdapter mAdapter;
 
     private List<GameObject> gameDatas;
     @BindView(R.id.swipe_container)
@@ -83,7 +82,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         context=(MainActivity)getActivity();
         mCompositeDisposable = new CompositeDisposable();
         gameDatas = new ArrayList<>();
-        mAdapter = new UserAdapter(this, gameDatas);
+        mAdapter = new GamesAdapter(this, gameDatas);
     }
 
 
@@ -99,12 +98,12 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         setupToolbar();
         setupRecyclerView();
-        loadUsersIfNetworkConnected();
+        loadData();
     }
 
     @Override
     protected int getFragmentLayout() {
-        return fragment_users;
+        return fragment_games_list;
     }
 
     @Override
@@ -123,12 +122,12 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         mCompositeDisposable.clear();
         if (mAdapter != null) mAdapter.setItems(new ArrayList<GameObject>());
 
-        loadUsersIfNetworkConnected();
+        loadData();
     }
 
     @OnClick(R.id.button_try_again)
     public void onTryAgainClick() {
-        loadUsersIfNetworkConnected();
+        loadData();
     }
 
     private void setupToolbar() {
@@ -165,13 +164,17 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     public void onError(Throwable e) {
-        handleError(e);
+        String errorMessage=null;
+        if(e instanceof UnknownHostException){
+            errorMessage=getString(R.string.noInternet);
+        }
+        showError("Error :"+errorMessage);
         hideLoadingViews();
         Timber.e("There was a problem loading gameDatas " + e);
         e.printStackTrace();
         DialogFactory.createSimpleOkErrorDialog(
                 context,
-                "There was a problem loading gameDatas " + e
+                "There was a problem loading gameDatas \n " + errorMessage
         ).show();
     }
 
@@ -181,38 +184,24 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     }
-    private void loadUsersIfNetworkConnected() {
-
-        if(AppConstants.networkStatus != NetworkStatus.networkStatusNotReachable){
-
+    private void loadData() {
 
             showHideOfflineLayout(false);
             mCompositeDisposable.add(mDataManager.getUserList()
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(mDataManager.getScheduler())
                     .subscribe(this::onNext, this::onError,this::onComplete));
-        }else {
-//            List<GameData> allOfflineGameDatas = realm.getAllUsers();
-//            if (allOfflineGameDatas.size() > 0) {
-//                handleResponse(realm.getAllUsers());
-//            }else {
-//                showError(getString(R.string.noInternet));
-//            }
 
-        }
     }
 
     private void handleResponse(GameData androidList) {
         hideLoadingViews();
         gameDatas = androidList.getData();
-        mAdapter = new UserAdapter(this, gameDatas);
+        mAdapter = new GamesAdapter(this, gameDatas);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    private void handleError(Throwable error) {
 
-        showError("Error "+error.getLocalizedMessage());
-    }
 
 
     private void hideLoadingViews() {
@@ -224,7 +213,6 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
         mOfflineContainer.setVisibility(isOffline ? View.VISIBLE : View.GONE);
         mRecyclerView.setVisibility(isOffline ? View.GONE : View.VISIBLE);
         mProgressBar.setVisibility(isOffline ? View.GONE : View.VISIBLE);
-        hideLoadingViews();
     }
 
     private void showError(String message) {
@@ -234,11 +222,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
 
     public void browseThisUser(GameObject gameData) {
-        BrowseProfileFragment browseProfileFragment=new BrowseProfileFragment();
-        Bundle args= new Bundle();
-//        args.putParcelable(AppConstants.USER_OBJECT_PARCELABLE_KEY, gameData);
-        browseProfileFragment.setArguments(args);
-
-        context.addFragment(browseProfileFragment);
+        PlayerInfoFragment playerInfoFragment =new PlayerInfoFragment();
+        context.addFragment(playerInfoFragment);
     }
 }

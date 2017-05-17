@@ -15,7 +15,13 @@ import com.tapdevs.myapp.R;
 
 public class SnackBarUtils {
 
-    public static void showSnackBarOnNoInternet(Activity context){
+    private Activity context;
+
+    public SnackBarUtils(Activity context) {
+        this.context=context;
+    }
+
+    public Snackbar getSnackBarForNoInternet(){
         Snackbar snackbar = Snackbar
                 .make(context.findViewById(android.R.id.content), context.getString(R.string.noInternet), Snackbar.LENGTH_INDEFINITE)
                 .setAction("Connect", v -> IntentUtils.connectToWifi(context));
@@ -36,5 +42,6 @@ public class SnackBarUtils {
         textView.setTextColor(Color.WHITE);
 
         snackbar.show();
+        return snackbar;
     }
 }

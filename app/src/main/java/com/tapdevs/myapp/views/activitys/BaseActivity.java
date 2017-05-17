@@ -3,6 +3,7 @@ package com.tapdevs.myapp.views.activitys;
 import android.app.FragmentManager;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
@@ -25,6 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private NetworkReachabilityReceiver networkReachabilityReceiver;
     private IEventHandler networkReachabilityListner;
     private IEvent event;
+    protected Snackbar snackBar;
 
 
     @Override protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +93,14 @@ public abstract class BaseActivity extends AppCompatActivity {
                 String networkNotReachableStatus = NetworkStatus.networkStatusNotReachable.toString();
 
                 if (networkStatus.equals(networkNotReachableStatus)) {
-                    SnackBarUtils.showSnackBarOnNoInternet(context);
+                    if(snackBar == null){
+                        snackBar= new SnackBarUtils(context).getSnackBarForNoInternet();
+                    }
+                    snackBar.show();
+                }else {
+                    if(snackBar != null && snackBar.isShown()){
+                        snackBar.dismiss();
+                    }
                 }
             }
         });

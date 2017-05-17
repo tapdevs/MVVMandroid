@@ -3,6 +3,8 @@ package com.tapdevs.myapp.injections.modules;
 import android.app.Application;
 
 
+import com.tapdevs.myapp.injections.scope.PerDataManager;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -22,7 +24,7 @@ public class AppModule {
     }
 
     @Provides
-    @Singleton
+    @PerDataManager
     Application providesApplication() {
         return mApplication;
     }

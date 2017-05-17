@@ -6,6 +6,7 @@ import com.tapdevs.myapp.utils.AppConstants;
 
 import io.reactivex.android.plugins.RxAndroidPlugins;
 import io.reactivex.plugins.RxJavaPlugins;
+import okhttp3.OkHttpClient;
 import retrofit.RxJavaCallAdapterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -17,11 +18,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitHelper {
 
-    public ApiCalls newApiCalls() {
+    public ApiCalls newApiCalls(OkHttpClient okHttpClient) {
 
         ApiCalls apiInterface = new Retrofit.Builder()
                 .baseUrl(AppConstants.SERVER_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build().create(ApiCalls.class);
 

@@ -9,6 +9,7 @@ import com.tapdevs.myapp.injections.component.DaggerNetComponent;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
 import com.tapdevs.myapp.models.GameData;
+import com.tapdevs.myapp.models.PlayerInfo;
 import com.tapdevs.myapp.utils.AppConstants;
 
 import java.util.List;
@@ -52,6 +53,11 @@ public class DataManager {
 
     public io.reactivex.Observable<GameData> getUserList() {
         return apiCalls.getUsers();
+
+    }
+
+    public io.reactivex.Observable<PlayerInfo> getPlayer() {
+        return apiCalls.getPlayer();
 
     }
 

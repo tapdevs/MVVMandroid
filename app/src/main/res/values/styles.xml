@@ -11,7 +11,7 @@
         <item name="android:textColorPrimary">@android:color/black</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="colorControlNormal">@android:color/white</item>
-        <item name="android:windowBackground">@drawable/tapdevs_splash</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

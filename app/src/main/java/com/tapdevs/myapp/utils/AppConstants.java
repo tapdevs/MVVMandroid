@@ -9,11 +9,7 @@ import com.tapdevs.myapp.abstractions.NetworkStatus;
 public class AppConstants {
 
     public static final String SERVER_URL = "https://dl.dropboxusercontent.com/s/";
-
-
-    //Keys
-    public static final String USER_OBJECT_PARCELABLE_KEY = "user_profile";
-    public static final String BROWSE_FRAGMENT_TAG = "BROWSE_FRAGMENT_TAG";
+    public static final String PLAYER_FRAGMENT_TAG = "PLAYER_FRAGMENT_TAG";
 
     //Network Status
     public static NetworkStatus networkStatus;

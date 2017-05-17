@@ -7,11 +7,10 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.tapdevs.myapp.R;
-import com.tapdevs.myapp.databinding.UserRowBinding;
-import com.tapdevs.myapp.models.GameData;
+import com.tapdevs.myapp.databinding.GameRowBinding;
 import com.tapdevs.myapp.models.GameObject;
-import com.tapdevs.myapp.viewmodels.UserViewModel;
-import com.tapdevs.myapp.views.fragments.UsersFragment;
+import com.tapdevs.myapp.viewmodels.GamesViewModel;
+import com.tapdevs.myapp.views.fragments.GamesListFragment;
 
 import java.util.List;
 
@@ -19,12 +18,12 @@ import java.util.List;
  * Created by  Jan Shair on 08/02/2017.
  */
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder> {
+public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.BindingHolder> {
 
     private List<GameObject> gameDataArrayList;
-    private UsersFragment context;
+    private GamesListFragment context;
 
-    public UserAdapter(UsersFragment context, List<GameObject> androidList) {
+    public GamesAdapter(GamesListFragment context, List<GameObject> androidList) {
         this.context=context;
         gameDataArrayList = androidList;
 
@@ -38,20 +37,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder>
     @Override
     public BindingHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        UserRowBinding commentBinding = DataBindingUtil.inflate(
+        GameRowBinding gameRowBinding = DataBindingUtil.inflate(
                 LayoutInflater.from(parent.getContext()),
-                R.layout.user_row,
+                R.layout.game_row,
                 parent,
                 false);
-        return new BindingHolder(commentBinding);
+        return new BindingHolder(gameRowBinding);
     }
 
     @Override
     public void onBindViewHolder(BindingHolder holder, int position) {
 
         GameObject gameData = gameDataArrayList.get(position);
-        UserRowBinding commentsHeaderBinding = (UserRowBinding) holder.binding;
-        commentsHeaderBinding.setViewModel(new UserViewModel(context, gameData));
+        GameRowBinding commentsHeaderBinding = (GameRowBinding) holder.binding;
+        commentsHeaderBinding.setViewModel(new GamesViewModel(context, gameData));
     }
 
     @Override
@@ -63,7 +62,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.BindingHolder>
 
         private ViewDataBinding binding;
 
-        public BindingHolder(UserRowBinding binding) {
+        public BindingHolder(GameRowBinding binding) {
             super(binding.containerItem);
             this.binding = binding;
         }
