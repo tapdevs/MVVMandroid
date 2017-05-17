@@ -22,6 +22,7 @@ import com.tapdevs.myapp.data.RealmDataManager;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
+import com.tapdevs.myapp.utils.GridAutofitLayoutManager;
 import com.tapdevs.myapp.utils.NetworkUtils;
 import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.adapters.UserAdapter;
@@ -154,7 +155,7 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     private void setupRecyclerView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new GridAutofitLayoutManager(this.getContext(),300));
         mRecyclerView.setHasFixedSize(true);
         mAdapter.setItems(users);
         mRecyclerView.setAdapter(mAdapter);
