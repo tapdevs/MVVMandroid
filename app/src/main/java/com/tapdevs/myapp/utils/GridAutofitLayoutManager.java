@@ -68,4 +68,5 @@ public class GridAutofitLayoutManager extends GridLayoutManager
         }
         super.onLayoutChildren(recycler, state);
     }
+
 }
