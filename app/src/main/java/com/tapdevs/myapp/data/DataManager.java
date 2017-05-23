@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.tapdevs.myapp.MyApp;
 import com.tapdevs.myapp.data.remote.ApiCalls;
+import com.tapdevs.myapp.injections.bindings.DIBinder;
 import com.tapdevs.myapp.injections.component.DaggerNetComponent;
 import com.tapdevs.myapp.injections.modules.AppModule;
 import com.tapdevs.myapp.injections.modules.NetModule;
@@ -41,11 +42,7 @@ public class DataManager {
     }
 
     protected void injectDependencies(Context context) {
-        DaggerNetComponent.builder()
-                .appModule(new AppModule(MyApp.get(context)))
-                .netModule(new NetModule(AppConstants.SERVER_URL))
-                .build()
-                .inject(MyApp.get(context));
+        DIBinder.bind(MyApp.get(context));
     }
 
     public Scheduler getScheduler() {

@@ -19,6 +19,8 @@ import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.abstractions.NetworkStatus;
 import com.tapdevs.myapp.data.DataManager;
 import com.tapdevs.myapp.data.RealmDataManager;
+import com.tapdevs.myapp.injections.bindings.DIBinder;
+import com.tapdevs.myapp.injections.component.NetComponent;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.utils.AppConstants;
 import com.tapdevs.myapp.utils.DialogFactory;
@@ -119,7 +121,8 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     protected void injectDependencies() {
-        MyApp.get(getActivity()).getNetComponent().inject(this);
+        NetComponent netComponent= DIBinder.bind(this);
+        netComponent.inject(this);
     }
 
     @Override
@@ -150,12 +153,10 @@ public class UsersFragment extends BaseFragment implements SwipeRefreshLayout.On
             actionBar.setDisplayHomeAsUpEnabled(true);
 
         }
-
-
     }
 
     private void setupRecyclerView() {
-        mRecyclerView.setLayoutManager(new GridAutofitLayoutManager(this.getContext(),300));
+        mRecyclerView.setLayoutManager(new GridAutofitLayoutManager(this.getContext(),600));
         mRecyclerView.setHasFixedSize(true);
         mAdapter.setItems(users);
         mRecyclerView.setAdapter(mAdapter);

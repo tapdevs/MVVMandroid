@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 
 import com.tapdevs.myapp.abstractions.IEvent;
 import com.tapdevs.myapp.abstractions.NetworkStatus;
+import com.tapdevs.myapp.views.activitys.BaseActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +34,7 @@ public class NetworkReachabilityReceiver extends BroadcastReceiver {
 
 
     public NetworkStatus getReachability(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         AppConstants.networkStatus  = NetworkStatus.networkStatusNotReachable;
 
         if (connectivityManager != null) {

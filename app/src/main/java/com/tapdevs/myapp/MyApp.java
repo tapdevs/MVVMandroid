@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.squareup.leakcanary.LeakCanary;
+import com.tapdevs.myapp.injections.bindings.DIBinder;
 import com.tapdevs.myapp.injections.component.DaggerNetComponent;
 import com.tapdevs.myapp.injections.component.NetComponent;
 import com.tapdevs.myapp.injections.modules.AppModule;
@@ -34,11 +35,7 @@ public class MyApp extends Application {
             return;
         }
         LeakCanary.install(this);
-        mNetComponent = DaggerNetComponent.builder()
-                // list of modules that are part of this component need to be created here too
-                .appModule(new AppModule(this)) // This also corresponds to the name of your module: %component_name%Module
-                .netModule(new NetModule(AppConstants.SERVER_URL))
-                .build();
+        mNetComponent = DIBinder.bind(this);
 
         if (BuildConfig.DEBUG) Timber.plant(new Timber.DebugTree()); else     Timber.plant(new CrashlyticsTree());
         Realm.init(this);

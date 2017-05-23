@@ -1,32 +1,18 @@
 package com.tapdevs.myapp.views.adapters;
 
-import android.app.Activity;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tapdevs.myapp.R;
 import com.tapdevs.myapp.databinding.UserRowBinding;
 import com.tapdevs.myapp.models.User;
 import com.tapdevs.myapp.viewmodels.UserViewModel;
-import com.tapdevs.myapp.views.activitys.MainActivity;
 import com.tapdevs.myapp.views.fragments.UsersFragment;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-import static android.R.attr.country;
 
 /**
  * Created by  Jan Shair on 08/02/2017.
